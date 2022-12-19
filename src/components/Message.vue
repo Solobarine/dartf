@@ -1,10 +1,9 @@
 <template>
-  <div class="messages">
+  <div v-bind:key="message.id" v-for="message in messages" class="messages">
     <div class="mesage">
-      <p class="id"></p>
-      <p class="sender"></p>
-      <p class="description"></p>
-      <p class="date"></p>
+      <p class="sender" v-html="message.sender"></p>
+      <p class="description" v-html="message.description"></p>
+      <p class="date" v-html="message.created_at"></p>
     </div>
   </div>
 </template>
