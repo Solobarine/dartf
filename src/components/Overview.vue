@@ -12,6 +12,7 @@
     <router-link to="/dashboard/messages" class="menu">Messages</router-link>
     <router-link to="/dashboard/settings" class="menu">Settings</router-link>
     <router-link to="/login" class="menu">Logout</router-link>
+    <button @click="checkCookie">Cookie</button>
   </div>
 </template>
 
@@ -22,6 +23,9 @@ export default {
       if (confirm('Are you sure you want to exit?')) {
         this.$store.state = ''
       }
+    },
+    checkCookie() {
+      console.log(this.$cookies.get('user'))
     }
   }
 }

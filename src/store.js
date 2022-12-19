@@ -7,7 +7,8 @@ export const store = createStore({
       cards: [],
       deposits : [],
       transfers: [],
-      messages: []
+      messages: [],
+      settings: []
     }
   },
   mutations: {
