@@ -6,7 +6,7 @@
     </div>
     <div class="navLinks">
       <p class="welcome"><router-link to="/">Welcome</router-link></p>
-      <p class="contact">Contact Us</p>
+      <p class="contact"><router-link to="/dashboard/contact-us">Contact Us</router-link></p>
       <p class="discover">Discover</p>
     </div>
     <div id="icons">

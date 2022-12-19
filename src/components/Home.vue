@@ -1,14 +1,19 @@
 <template>
   <h2 class="dashboard">Dashboard</h2>
   <div id="accountSummary">
-    <div class="balanceInfo"></div>
-    <div class="accountInfo"></div>
+    <div class="balanceInfo">
+      <p class="b-title">Balance</p>
+      <p class="balance">${{balance}}</p>
+    </div>
+    <div class="accountInfo">
+      <p class="name">{{firstName}} {{lastName}}</p>
+      <p class="accountNo">Account No: {{accountNo}}</p>
+    </div>
   </div>
   <h3 class="recent">Recent</h3>
   <div class="cashFlow">
-    <div class="graph">
-
-    </div>
+    <div v-bind:key="deposit.id" v-for="deposit in deposits" class="deposits"></div>
+    <div v-bind:key="transfer.id" v-for="transfer in transfer" class="transfers"></div>
   </div>
 </template>
 
@@ -37,7 +42,17 @@ export default {
         store.settings = response.settings
       }
     }
-  },
+   },
+   data () {
+    return {
+      balance: this.$store.state.userDetails.balance,
+      firstName: this.$store.state.userDetails.firstName,
+      lastName: this.$store.state.userDetails.lastName,
+      accountNo: this.$store.state.userDetails.account_no,
+      deposits: this.$store.state.deposits,
+      transfers: this.$store.state.transfers
+    }
+   }
 }
 </script>
 

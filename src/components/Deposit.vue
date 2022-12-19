@@ -1,8 +1,8 @@
 <template>
   <h1 class="deposit">Make a Deposit</h1>
-  <form action="#" method="post">
-    <input type="text" name="amount" id="amount">
-    <input type="submit" value="Submit">
+  <form id="form">
+    <input v-model="amount" type="text" name="amount" id="amount">
+    <input @click="makeDeposit" type="submit" value="Submit">
   </form>
 </template>
 
@@ -31,7 +31,19 @@ export default {
         store.settings = response.settings
       }
     }
+   },
+   data () {
+     return {
+      amount: '',
+      accountNo: ''
+     }
   },
+  methods: {
+    makeDeposit () {
+      const depositRequest = {amount: this.amount, account_no: this.accountNo}
+      this.$store.dispatch('makeDeposit', depositRequest)  
+    } 
+  }
 }
 </script>
 
