@@ -8,7 +8,16 @@ export const store = createStore({
       deposits : [],
       transfers: [],
       messages: [],
-      settings: []
+      settings: [{
+        background_color_1: '#e1f2f8',
+        background_color_2: '#f9f3fc',
+        background_color_3: '#f2f7f6',
+        background_color_4: '#ede',
+        color_1: '#427e7a',
+        color_2: '#1c3a3e',
+        color_3: '#b1babe'
+
+      }]
     }
   },
   mutations: {
@@ -60,6 +69,24 @@ export const store = createStore({
         this.$cookies.set('user', user)
         this.$router.replace({path: '/dashboard'})
       }
+    },
+    deposit: async (state, payload) => {
+      const url = 'http://localhost:8000/deposit'
+      const options = {
+        "method": "POST",
+        "body": JSON.stringify(payload),
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+      const response = await fetch(url, options).then(res => res.json()).then(res => console.log(res)).catch(err => console.log(err))
+      if (!response.err) {
+        this.store.state.deposits.push(response)
+        return 'Your Request has been Accepted. Crediting your account may take a while'
+      } else {
+        return 'Sorry, your transaction has failed'
+      }
+      
     },
     changeTheme: (state, payload) => {
       let settings = []

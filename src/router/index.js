@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import AccountView from '../views/AccountView.vue';
+import ContactUsPage from '../views/ContactUsPage.vue';
 import DashBoard from '../views/Dashboard.vue';
 import DepositView from '../views/DepositView.vue';
 import Login from '../views/Login.vue';
@@ -14,6 +15,11 @@ const routes = [
     name: 'Account',
     path: '/dashboard/account',
     component: AccountView
+  },
+  {
+    name: 'ContactUs',
+    path: '/dashboard/contact-us',
+    component: ContactUsPage
   },
   {
     name: 'DashBoard',

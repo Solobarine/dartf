@@ -4,10 +4,19 @@
 
 <script>
 export default {
-  
+  name: 'Footer',
+  data () {
+    return {
+
+    }
+  }
 }
 </script>
 
 <style scoped>
-
+  p {
+    text-align: center;
+    font-size: 16px;
+    margin-top: 25px;
+  }
 </style>

@@ -1,4 +1,5 @@
 <template>
+  <Overview />
   <div class="container">
     <ul>
       <li id="c-theme">Theme</li>
@@ -28,8 +29,13 @@
 </template>
 
 <script>
+import Overview from '../components/Overview.vue'
+
 export default {
   name: 'Settings',
+  components: {
+    Overview
+  },
   data () {
     return {
       showUpdateForm: false,

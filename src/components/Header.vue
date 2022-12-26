@@ -1,5 +1,5 @@
 <template>
-  <header id="navBar">
+  <header  id="navBar">
     <div id="company">
       <h3 id="companyName">dart</h3> 
       <i className="fa-target"></i>
@@ -19,13 +19,39 @@
 <script>
   export default {
     name: 'HeaderView',
+    data () {
+      return {
+        theme: 'light',
+        themeColors: this.$store.state.settings[0],
+        col: "#ff0"
+      }
+    }
   };
 </script>
 
 <style scoped>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
   #navBar {
     display: flex;
     text-align: center;
     justify-content: space-between;
+    padding: 20px;
+    background-image: linear-gradient(to right, v-bind(themeColors.background_color_1), #fff 25%, v-bind(themeColors.background_color_2));
+  }
+
+  .navLinks {
+    width: 30%;
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+  }
+
+  .navLinks > p a {
+    text-decoration: none;
   }
 </style>
