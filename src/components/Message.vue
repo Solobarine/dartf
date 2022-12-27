@@ -58,7 +58,7 @@
 
 <script>
 export default {
-  name: 'Message',
+  name: 'MessageView',
   created () {
     if (this.$cookies.isKey('user') == true && (this.$store.state.userDetails.length == 0)) {
       const user = this.$cookie.get('user').json()

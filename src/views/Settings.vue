@@ -35,7 +35,7 @@
 import Overview from '../components/Overview.vue'
 
 export default {
-  name: 'Settings',
+  name: 'SettingsPage',
   components: {
     Overview
   },

@@ -13,6 +13,7 @@
 
 <script>
 export default {
+  name: 'AccountView',
    created () {
     if(this.$cookies.isKey('user') == true && (this.$store.state.userDetails.length == 0)) {
       const user = this.$cookies.get('user').json()

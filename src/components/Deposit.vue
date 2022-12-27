@@ -10,6 +10,7 @@
 
 <script>
 export default {
+  name: 'DepositView',
    created () {
     if(this.$cookies.isKey('user') == true && (this.$store.state.userDetails.length == 0)) {
       const user = this.$cookies.get('user').json()

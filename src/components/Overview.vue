@@ -20,6 +20,7 @@
 
 <script>
 export default {
+  name: 'OverView',
   data () {
     return {
       themeColors: this.$store.state.settings[0]
