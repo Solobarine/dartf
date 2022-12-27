@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <div class="buttons">
-      <button id="login"><router-link to="/login">Login</router-link></button>
-      <button id="signUp"><router-link to="/signup">Sign Up</router-link></button>
+      <router-link to="/login"><button id="login">Login</button></router-link>
+      <router-link to="/signup"><button id="signUp">Sign Up</button></router-link>
     </div>
     <h1 class="title">Welcome to Dart</h1>
     <h3 class="subtitle">The No 1 Financial Service Provider</h3>
@@ -25,7 +25,7 @@ export default {
   .container {
     border: 2px solid black;
     height: 80vh;
-    background-image: linear-gradient(45deg, v-bind(themeColors.background_color_1), #fff 15%, v-bind(themeColors.background_color_2));
+    background-image: linear-gradient(45deg, v-bind(themeColors.background_color_1), v-bind(themeColors.background_color_2));
   }
 
   .buttons {
@@ -34,14 +34,16 @@ export default {
     width: 18%;
     padding: 8px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
   }
 
-  .buttons > button {
+  .buttons > a > button {
     font-size: 20px;
     padding: 14px;
-    width: 45%;
+    width: 120px;
     border-radius: 10px;
+    border: 2px solid v-bind(themeColors.background_color_3);
+    background-color: v-bind(themeColors.background_color_1);
   }
 
   .title {

@@ -9,8 +9,8 @@ export const store = createStore({
       transfers: [],
       messages: [],
       settings: [{
-        background_color_1: '#e1f2f8',
-        background_color_2: '#f9f3fc',
+        background_color_1: '#59bdbb',
+        background_color_2: '#fc9790',
         background_color_3: '#f2f7f6',
         background_color_4: '#ede',
         color_1: '#427e7a',

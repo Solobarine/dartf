@@ -6,14 +6,13 @@
       <p class="intro">Welcome back to Dart</p>
     </div>
     <div class="menus">
-      <p class="dashboard"><router-link to="/dashboard" class="menu">Dashboard</router-link></p>
-      <p class="account"><router-link to="/dashboard/account" class="menu">Account</router-link></p>
-      <p class="deposit"><router-link to="/dashboard/deposit" class="menu">Deposit</router-link></p>
-      <p class="transfer"><router-link to="/dashboard/transfer" class="menu">Transfer</router-link></p>
-      <p class="message"><router-link to="/dashboard/messages" class="menu">Messages</router-link></p>
-      <p class="setings"><router-link to="/dashboard/settings" class="menu">Settings</router-link></p>
-      <p class="logout"><router-link to="/login" class="menu">Logout</router-link></p>
-      <button @click="checkCookie">Cookie</button>
+      <router-link to="/dashboard" class="menu"><p class="dashboard">Dashboard</p></router-link>
+      <router-link to="/dashboard/account" class="menu"><p class="accoount">Account</p></router-link>
+      <router-link to="/dashboard/deposit" class="menu"><p class="deposit">Deposit</p></router-link>
+      <router-link to="/dashboard/transfer" class="menu"><p class="transfer">Transfer</p></router-link>
+      <router-link to="/dashboard/messages" class="menu"><p class="message">Messages</p></router-link>
+      <router-link to="/dashboard/settings" class="menu"><p class="setings">Settings</p></router-link>
+      <router-link to="/login" class="menu"><p class="logout">Logout</p></router-link>
     </div>
   </div>
 </template>
@@ -31,9 +30,6 @@ export default {
       if (confirm('Are you sure you want to exit?')) {
         this.$store.state = ''
       }
-    },
-    checkCookie() {
-      console.log(this.$cookies.get('user'))
     }
   }
 }
@@ -43,10 +39,10 @@ export default {
   .container {
     display: flex;
     flex-direction: column;
-    background-image: linear-gradient(v-bind(themeColors.background_color_1), #fff);
+    background-image: linear-gradient(v-bind(themeColors.background_color_1), v-bind(themeColors.background_color_4));
     height: 80vh;
     width: 20%;
-    padding-left: 40px;
+    padding-left: 30px;
   }
 
   #image {
@@ -59,8 +55,13 @@ export default {
 
   .greet,
   .intro {
-    font-size: 30px;
+    font-size: 25px;
     margin-bottom: 20px;
+  }
+
+  .intro {
+    font-size: 30px;
+    font-weight: 600;
   }
 
   .menus {
@@ -70,11 +71,7 @@ export default {
     height: 60%;
   }
 
-  .menus > p {
+  .menus > a > p {
     font-size: 25px;
-  }
-  .active,
-  .menus > p > a {
-    text-decoration: none;
   }
 </style>
