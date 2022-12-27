@@ -109,6 +109,8 @@ export default {
     height: 80vh;
     display: flex;
     flex-direction: column;
+    padding-top: 40px;
+    background: v-bind(themeColors.background_color_3);
   }
 
   .transfer {
