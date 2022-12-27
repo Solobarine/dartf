@@ -5,7 +5,7 @@ import DashBoard from '../views/Dashboard.vue';
 import DepositView from '../views/DepositView.vue';
 import Login from '../views/Login.vue';
 import MessageView from '../views/MessageView.vue';
-import Settings from '../views/Settings.vue';
+import Settings from '../views/SettingsPage.vue';
 import SignUp from '../views/SignUp.vue';
 import TransferView from '../views/TransferView.vue';
 import Welcome from '../views/Welcome.vue';

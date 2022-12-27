@@ -95,12 +95,12 @@ export default {
 
   .sign-up {
     color: #00f;
-    height: 85vh;
+    height: 80vh;
   }
 
   .contents {
     width: 30%;
-    height: 90%;
+    height: 95%;
     margin-left: 35%;
     display: flex;
     align-items: center;
