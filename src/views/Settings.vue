@@ -1,0 +1,114 @@
+<template>
+  <div class="parent">
+    <div class="div">
+      <Overview />
+    </div>
+    <div class="container">
+      <ul>
+        <li id="c-theme">Theme</li>
+        <li @click="showPopUp" id="userDetails">User Details</li>
+      </ul>
+      <div class="categories">
+        <h3 class="theme">Theme</h3>
+        <select v-model="theme" name="theme" id="themeOptions">
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+        </select>
+        <button @click="saveTheme" id="saveTheme" type="submit">Save</button>
+        <h3 class="changeDetails">Update Your Details</h3>
+        <form v-if="showUpdateForm" class="form" action="#">
+          <input v-model="phoneNo" type="number" id="phoneNo" minlength="10" maxlength="11" required>
+          <input type="email" id="mail" required>
+          <input @click="showConfirmation" type="submit" value="Update">
+        </form>
+        <div v-if="updateDetails && showUpdateForm" class="confirm">
+          <h3 class="enter">Enter Your Password.</h3>
+          <input type="password" name="password" id="password" required>
+          <input v-on:click="confirmChanges" type="submit" value="Submit">
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import Overview from '../components/Overview.vue'
+
+export default {
+  name: 'SettingsPage',
+  components: {
+    Overview
+  },
+  data () {
+    return {
+      showUpdateForm: false,
+      updateDetails: false,
+      count: 0,
+      theme: 'light',
+      dark: false,
+      light: true,
+      themeColors: this.$store.state.settings[0]
+    }
+  },
+  methods: {
+    saveTheme () {
+     this.$store.dispatch('changeTheme', this.theme) 
+    },
+    showPopUp () {
+      this.showUpdateForm = !this.showUpdateForm
+      this.updateDetails = false
+    },
+    showConfirmation () {
+      this.updateDetails = !this.updateDetails
+    },
+    confirmChanges () {
+      this.count += 1
+    }
+  }
+}
+</script>
+
+<style scoped>
+  .parent {
+    display: flex;
+  }
+
+  .div {
+    width: 30%;
+  }
+
+  .container {
+    width: 70%;
+    height: 80vh;
+    display: flex;
+    background-color: green;
+    padding-top: 30px;
+  }
+
+  ul {
+    width: 20%;
+  }
+
+  ul > li {
+    list-style: none;
+    font-size: 25px;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+
+  .categories {
+    display: flex;
+    flex-direction: column;
+  }
+
+  select {
+    width: 90px;
+    height: 50px;
+    font-size: 20px;
+  }
+
+  #saveTheme {
+    width: 120px;
+    padding: 13px;
+  }
+</style>
