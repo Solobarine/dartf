@@ -1,6 +1,8 @@
 <template>
-  <Overview />
-  <ContactUs />
+  <div class="container">
+    <Overview />
+    <ContactUs />
+  </div>
 </template>
 
 <script>
@@ -17,5 +19,7 @@ export default {
 </script>
 
 <style scoped>
-
+  .container {
+    display: flex;
+  } 
 </style>

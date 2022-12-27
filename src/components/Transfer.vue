@@ -1,20 +1,23 @@
 <template>
-  <form action="#" method="post">
-    <label for="cards">Choose Card</label>
-    <select v-model="card" name="card" id="cards">
-      <option v-bind:key="card" v-for="card in cards">{{card}}</option>
-    </select>
-    <input v-model="amount" type="number" name="amount" id="amount" placeholder="Enter Amount">
-    <input v-model="receiverAccNo" type="text" name="receiverAccNo" id="receiverAccNo" placeholder="Receiver Account Number">
-    <div class="receiverName">
-      <p class="info">Always Wait until you can see the recipient's name before clicking the Submit button.</p>
-      <p class="name r-firstName">{{receiverFirstName}}</p>
-      <p class="name r-lastName">{{receiverLastName}}</p>
-    </div>
-    <input v-model="pin" type="number" name="pin" id="pin" placeholder="Enter Your Pin">
-    <input v-model="description" type="text" name="description" id="description" placeholder="Description">
-    <input type="submit" value="Submit">
-  </form>
+  <div class="container">
+    <h2 class="transfer">Make Your Transfer</h2>
+    <form class="form" action="#" method="post">
+      <select v-model="card" name="card" id="cards">
+        <option disabled value="">Choose Your Card</option>
+        <option v-bind:key="card" v-for="card in cards">{{card}}</option>
+      </select>
+      <input v-model="amount" type="number" name="amount" id="amount" placeholder="Enter Amount">
+      <input v-model="receiverAccNo" type="text" name="receiverAccNo" id="receiverAccNo" placeholder="Receiver Account Number">
+      <div class="receiverName">
+        <p class="info">Always Wait until you can see the recipient's name before clicking the Submit button.</p>
+        <p class="name r-firstName">{{receiverFirstName}}</p>
+        <p class="name r-lastName">{{receiverLastName}}</p>
+      </div>
+      <input v-model="pin" type="number" name="pin" id="pin" placeholder="Enter Your Pin">
+      <input v-model="description" type="text" name="description" id="description" placeholder="Description">
+      <input class="submit" type="submit" value="Submit">
+    </form>
+  </div>
 </template>
 
 <script>
@@ -56,7 +59,8 @@ export default {
       amount: '',
       pin: '',
       description: '',
-      transferRequest: ''
+      transferRequest: '',
+      themeColors: this.$store.state.settings[0]
     }
   },
   methods: {
@@ -100,7 +104,53 @@ export default {
 </script>
 
 <style scoped>
+  .container {
+    width: 80%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+  }
 
+  .transfer {
+    text-align: center;
+    font-size: 35px;
+  }
+
+  .form {
+    width: 40%;
+    margin-left: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  select,
+  input {
+    width: 70%;
+    height: 50px;
+    border-radius: 10px;
+    margin-top: 30px;
+    border: none;
+    padding-left: 20px;
+  }
+
+  input {
+    background-color: v-bind(themeColors.background_color_4);
+  }
+
+  .info,
+  .name {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 20px;
+    color: v-bind(themeColors.color_1);
+  }
+
+  .submit {
+    width: 25%;
+    padding-left: 0;
+    padding: 13px;
+    font-size: 18px;
+    background-color: v-bind(themeColors.color_1);
+  }
 </style>
-
-

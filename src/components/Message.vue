@@ -1,9 +1,57 @@
 <template>
-  <div v-bind:key="message.id" v-for="message in messages" class="messages">
+  <div class="container">
+  <h2 class="deposit">Messages</h2>
+  <div class="messages">
     <div class="mesage">
-      <p class="sender" v-html="message.sender"></p>
-      <p class="description" v-html="message.description"></p>
-      <p class="date" v-html="message.created_at"></p>
+      <p class="sender" >Dart</p>
+      <p class="description" >Deposit</p>
+      <p class="date" >12-12-22</p>
+    </div>
+    <div class="mesage">
+      <p class="sender" >Dart</p>
+      <p class="description" >Deposit</p>
+      <p class="date" >12-12-22</p>
+    </div>
+    <div class="mesage">
+      <p class="sender" >Dart</p>
+      <p class="description" >Deposit</p>
+      <p class="date" >12-12-22</p>
+    </div>
+    <div class="mesage">
+      <p class="sender" >Dart</p>
+      <p class="description" >Deposit</p>
+      <p class="date" >12-12-22</p>
+    </div>
+    <div class="mesage">
+      <p class="sender" >Dart</p>
+      <p class="description" >Deposit</p>
+      <p class="date" >12-12-22</p>
+    </div>
+    <div class="mesage">
+      <p class="sender" >Dart</p>
+      <p class="description" >Deposit</p>
+        <p class="date" >12-12-22</p>
+      </div>
+      <div class="mesage">
+        <p class="sender" >Dart</p>
+        <p class="description" >Deposit</p>
+        <p class="date" >12-12-22</p>
+      </div>
+      <div class="mesage">
+        <p class="sender" >Dart</p>
+        <p class="description" >Deposit</p>
+        <p class="date" >12-12-22</p>
+      </div>
+      <div class="mesage">
+        <p class="sender" >Dart</p>
+        <p class="description" >Deposit</p>
+        <p class="date" >12-12-22</p>
+      </div>
+      <div class="mesage">
+        <p class="sender" >Dart</p>
+        <p class="description" >Deposit</p>
+        <p class="date" >12-12-22</p>
+      </div>
     </div>
   </div>
 </template>
@@ -37,8 +85,47 @@ export default {
   },
   data () {
     return {
-      messages: this.$store.state.messages
+      messages: this.$store.state.messages,
+      themeColors: this.$store.state.settings[0]
     }
   }
 }
 </script>
+
+<style scoped>
+  .container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    overflow-y: scroll;
+  }
+
+  .deposit {
+    font-size: 32px;
+    text-align: center;
+    margin: 40px;
+  }
+
+  .messages {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+  }
+
+  .mesage {
+    display: flex;
+    border: 2px solid v-bind(themeColors.background_color_1);
+    justify-content: space-between;
+    width: 70%;
+    margin-left: 15%;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: v-bind(themeColors.background_color_3);
+  }
+
+  .mesage > p {
+    font-size: 25px;
+  }
+</style>

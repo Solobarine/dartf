@@ -1,9 +1,11 @@
 <template>
-  <h1 class="deposit">Make a Deposit</h1>
-  <form id="form">
-    <input v-model="amount" type="text" name="amount" id="amount">
-    <input @click="makeDeposit" type="submit" value="Submit">
-  </form>
+  <div class="container">
+    <h1 class="deposit">Make a Deposit</h1>
+    <form id="form">
+      <input v-model="amount" type="number" name="amount" id="amount">
+      <input @click="makeDeposit" type="submit" class="submit" value="Submit">
+    </form>
+  </div>
 </template>
 
 <script>
@@ -35,7 +37,8 @@ export default {
    data () {
      return {
       amount: '',
-      accountNo: ''
+      accountNo: '',
+      themeColors: this.$store.state.settings[0]
      }
   },
   methods: {
@@ -48,5 +51,41 @@ export default {
 </script>
 
 <style scoped>
+  .container {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+  }
 
+  .deposit {
+    text-align: center;
+    font-size: 35px;
+    margin: 30px;
+  }
+
+  #form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    margin-left: 35%;
+    height: 40%;
+  }
+
+  input {
+    width: 80%;
+    margin-top: 40px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    background-color: v-bind(themeColors.background_color_3);
+  }
+
+  .submit {
+    width: 30%;
+    padding: 12px;
+    font-size: 18px;
+    margin-top: 40px;
+    background-color: v-bind(themeColors.color_1);
+  }
 </style>

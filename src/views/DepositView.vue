@@ -1,6 +1,8 @@
 <template>
-  <Overview />
-  <Deposit />
+  <div class="container">
+    <Overview />
+    <Deposit />
+  </div>
 </template>
 
 <script>
@@ -17,5 +19,7 @@ export default {
 </script>
 
 <style scoped>
-
+  .container {
+    display: flex;
+  }
 </style>
