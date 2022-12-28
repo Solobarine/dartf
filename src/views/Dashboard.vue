@@ -1,6 +1,8 @@
 <template>
-  <Overview />
-  <Home />
+  <div class="container">
+    <Overview />
+    <Home />
+  </div>
 </template>
 
 <script>
@@ -15,3 +17,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .container {
+    display: flex;
+  }
+</style>

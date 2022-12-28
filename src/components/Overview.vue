@@ -6,13 +6,13 @@
       <p class="intro">Welcome back to Dart</p>
     </div>
     <div class="menus">
-      <router-link to="/dashboard" class="menu"><p class="dashboard">Dashboard</p></router-link>
-      <router-link to="/dashboard/account" class="menu"><p class="accoount">Account</p></router-link>
-      <router-link to="/dashboard/deposit" class="menu"><p class="deposit">Deposit</p></router-link>
-      <router-link to="/dashboard/transfer" class="menu"><p class="transfer">Transfer</p></router-link>
-      <router-link to="/dashboard/messages" class="menu"><p class="message">Messages</p></router-link>
-      <router-link to="/dashboard/settings" class="menu"><p class="setings">Settings</p></router-link>
-      <router-link to="/login" class="menu"><p class="logout">Logout</p></router-link>
+      <router-link to="/dashboard" class="menu"><p class="dashboard"><i class="fa-solid fa-grip"></i>   Dashboard</p></router-link>
+      <router-link to="/dashboard/account" class="menu"><p class="accoount"><i class="fa-solid fa-house-user"></i>   Account</p></router-link>
+      <router-link to="/dashboard/deposit" class="menu"><p class="deposit"><i class="fa-solid fa-sack-dollar"></i>   Deposit</p></router-link>
+      <router-link to="/dashboard/transfer" class="menu"><p class="transfer"><i class="fa-solid fa-money-bill-transfer"></i>   Transfer</p></router-link>
+      <router-link to="/dashboard/messages" class="menu"><p class="message"><i class="fa-solid fa-message"></i>   Messages</p></router-link>
+      <router-link to="/dashboard/settings" class="menu"><p class="setings"><i class="fa-solid fa-sliders"></i>   Settings</p></router-link>
+      <router-link to="/login" class="menu"><p class="logout"> <i class="fa-solid fa-right-from-bracket"></i>   Logout</p></router-link>
     </div>
   </div>
 </template>
@@ -73,5 +73,9 @@ export default {
 
   .menus > a > p {
     font-size: 25px;
+  }
+
+  i {
+    color: v-bind(themeColors.color_1);
   }
 </style>
