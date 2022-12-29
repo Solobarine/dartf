@@ -30,28 +30,28 @@
       <div class="deposits">
         <h3>Recent Deposits</h3>
         <div class="">
-          <i></i>
+          <i class="fa-solid fa-circle-user"></i>
           <div>
             <p class="t-name">Solly</p>
             <p class="time">28-11-2022 at 08:00</p>
           </div>
-          <p>$450</p>
+          <p class="dinero">$450</p>
         </div>
          <div class="">
-          <i></i>
+          <i class="fa-solid fa-circle-user"></i>
           <div>
             <p class="t-name">Solly</p>
             <p class="time">28-11-2022 at 08:00</p>
           </div>
-          <p>$450</p>
+          <p class="dinero">$450</p>
         </div>
          <div class="">
-          <i></i>
+          <i class="fa-solid fa-circle-user"></i>
           <div>
             <p class="t-name">Solly</p>
             <p class="time">28-11-2022 at 08:00</p>
           </div>
-          <p>$450</p>
+          <p class="dinero">$450</p>
         </div>
            <div class="">
           <i></i>
@@ -91,42 +91,42 @@
         <h3>Recent Transfers</h3>
         <div class="">
           <div class="send">
-            <i></i>
+            <i class="fa-solid fa-circle-user"></i>
             <p>Solly</p>
           </div>
           <p>to</p>
           <div class="receive">
-            <i></i>
+            <i class="fa-solid fa-circle-user"></i>
             <p>Fabio L.</p>
           </div>
           <p>07-09-2022</p>
-          <p>amount</p>
+          <p class="amount">$25</p>
         </div>
         <div class="">
           <div class="send">
-            <i></i>
+            <i class="fa-solid fa-circle-user"></i>
             <p>Solly</p>
           </div>
           <p>to</p>
           <div class="receive">
-            <i></i>
-            <p>Fabio L.</p>
+            <i class="fa-solid fa-circle-user"></i>
+            <p>Daniel</p>
           </div>
           <p>07-09-2022</p>
-          <p>amount</p>
+          <p class="amount">$82</p>
         </div>
         <div class="">
           <div class="send">
-            <i></i>
+            <i class="fa-solid fa-circle-user"></i>
             <p>Solly</p>
           </div>
           <p>to</p>
           <div class="receive">
-            <i></i>
-            <p>Fabio L.</p>
+            <i class="fa-solid fa-circle-user"></i>
+            <p>Papadoupolos</p>
           </div>
           <p>07-09-2022</p>
-          <p>amount</p>
+          <p class="amount">$127</p>
         </div>
         <div class="">
           <div class="send">
@@ -182,15 +182,20 @@
         </div>
       </div>
       <div class="cards">
-
+        <Card />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import Card from './Card.vue'
+
 export default {
   name: 'HomeView',
+  components: {
+    Card
+  },
    created () {
     if(this.$cookies.isKey('user') == true && this.$store.state.userDetails.length == 0) {
       const user = this.$cookies.get('user').json()
@@ -295,20 +300,40 @@ export default {
     padding: 5px;
   }
 
+  .dinero {
+    font-weight: 600;
+    color: green;
+  }
+
+  .amount {
+    font-size: 20px;
+    font-weight: 600;
+    color: red;
+  }
+
   .deposits > div >div {
     display: flex;
     flex-direction: column;
   }
 
   .transfers {
-    width: 40%;
+    width: 46%;
   }
 
   .deposits {
-    width: 27%;
+    width: 25%;
   }
 
   .cards {
-    width: 27%;
+    width: 25%;
+  }
+
+  .cards .container {
+    width: 100%;
+    height: 200px;
+    overflow-y: hidden;
+    padding: 12px 20px;
+    border-radius: 15px;
+    border: 2px solid v-bind(themeColors.color_1);
   }
 </style>

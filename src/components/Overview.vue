@@ -2,7 +2,7 @@
   <div class="container">
     <div class="bio">
       <img id="image" src="#" alt="Profile Pic">
-      <h3 class="greet">Hello <span class="name">######</span></h3>
+      <h3 class="greet">Hello <span class="name">Solly</span></h3>
       <p class="intro">Welcome back to Dart</p>
     </div>
     <div class="menus">
@@ -57,6 +57,10 @@ export default {
   .intro {
     font-size: 25px;
     margin-bottom: 20px;
+  }
+
+  span {
+    font-size: 35px;
   }
 
   .intro {

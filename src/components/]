@@ -13,16 +13,13 @@
       </div>
       <div class="cards">
         <h2 class="cardHead">Card Details</h2>
-        <div class="card-div">
+        <div class="cards">
           <select v-model="tarjeta" name="card" id="details">
-            <option disabled value="">Choose Your Card</option>
             <option :key="card.id" v-for="card in cards">{{card}}</option>
           </select>
         </div>
         {{tarjeta}}
-        <div class="card-graphic">
-          <Card />
-        </div>
+        <div class="card-graphic"></div>
         <button @click="toggleCreateCard" type="submit" id="new">Create New</button>
       </div>
     </div>
@@ -60,13 +57,8 @@
 </template>
 
 <script>
-import Card from './Card.vue'
-
 export default {
   name: 'AccountView',
-  components: {
-    Card
-  },
   data () {
     return {
       themeColors: this.$store.state.settings[0],
@@ -141,7 +133,7 @@ export default {
     border: none;
     border-radius: 10px;
     margin-top: 25px;
-    background-color: v-bind(themeColors.background_color_4);
+    background-color: v-bind(themeColors.background_color_1);
   }
 
   #new:hover {
@@ -162,9 +154,6 @@ export default {
 
   .accountDetails > p {
     text-align: start;
-    font-size: 28px;
-    font-weight: 500;
-    margin-bottom: 12px;
   }
 
   .create-card form {
@@ -201,29 +190,7 @@ export default {
   }
 
   .cards {
-    width: 35%;
-    height: auto;
-    background: v-bind(themeColors.color_1);
-    
-  }
-
-  select {
-    margin: auto;
-    width: 60%;
-    height: 50px;
-    font-size: 26px;
-    border-radius: 15px;
-    border: none;
-    background: v-bind(themeColors.background_color_2);
-    margin-top: 10px;
-    margin-bottom: 20px;
-  }
-
-  .card-graphic .container {
-    height: 200px;
-    overflow-y: hidden;
-    padding: 15px;
-    margin: auto;
+    max-height: 300px;
   }
 
   .stats {
@@ -239,6 +206,7 @@ export default {
     margin-left: 0%;
   }
 
+  .accountDetails > p,
   .cards > p {
     font-size: 25px;
   }

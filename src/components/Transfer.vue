@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <h2 class="transfer">Make Your Transfer</h2>
-    <form class="form" action="#" method="post">
+    <form class="form">
       <select v-model="card" name="card" id="cards">
         <option disabled value="">Choose Your Card</option>
         <option v-bind:key="card" v-for="card in cards">{{card}}</option>
@@ -50,7 +50,8 @@ export default {
   data () {
     return {
       cards: this.$store.state.cards,
-      card: 'You don\'t have a card',
+      card: '',
+      iscard: 'You don\'t have a card',
       firstName: this.$store.state.userDetails.firstName,
       lastName: this.$store.state.userDetails.lastName,
       receiverFirstName: '',
@@ -134,6 +135,11 @@ export default {
     margin-top: 30px;
     border: none;
     padding-left: 20px;
+  }
+
+  select {
+    font-size: 20px;
+    text-align: center;
   }
 
   input {
