@@ -17,13 +17,13 @@
     </div>
     <form v-if="showUpdateForm" class="form" action="#">
       <h2 class="changeDetails">Update Your Details</h2>
-        <input v-model="phoneNo" type="number" id="phoneNo" minlength="10" maxlength="11" required>
-        <input type="email" id="mail" required>
+        <input v-model="phoneNo" type="number" id="phoneNo" minlength="10" maxlength="11" placeholder="Enter New Phone Number" required>
+        <input type="email" id="mail" placeholder="Enter New Email" required>
         <input @click="showConfirmation" type="submit" class="submit" value="Update">
       </form>
       <div v-if="updateDetails && showUpdateForm" class="confirm">
         <h3 class="enter">Enter Your Password.</h3>
-        <input type="password" name="password" id="password" required>
+        <input type="password" name="password" id="password" placeholder="Enter Your Password" required>
         <input v-on:click="confirmChanges" type="submit" class="submit" value="Submit">
       </div>
     </div>
@@ -162,13 +162,16 @@
     margin-top: 25px;
     border: none;
     border-radius: 12px;
+    font-size: 22px;
+    padding-left: 20px;
     background-color: v-bind(themeColors.background_color_4);
   }
 
   .submit {
-    width: 20%;
+    width: 13%;
     font-size: 18px;
     margin-bottom: 20px;
+    padding-left: 0;
     background-color: v-bind(themeColors.color_1);
   }
 </style>

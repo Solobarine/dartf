@@ -2,7 +2,7 @@
   <div class="container">
     <h1 class="deposit">Make a Deposit</h1>
     <form id="form">
-      <input v-model="amount" type="number" name="amount" id="amount">
+      <input v-model="amount" type="number" name="amount" id="amount" placeholder="Enter Amount">
       <input @click="makeDeposit" type="submit" class="submit" value="Submit">
     </form>
   </div>
@@ -80,6 +80,11 @@ export default {
     border: none;
     border-radius: 10px;
     background-color: v-bind(themeColors.background_color_3);
+  }
+
+  #amount {
+    font-size: 17px;
+    padding-left: 20px;
   }
 
   .submit {

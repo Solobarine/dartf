@@ -115,6 +115,7 @@ export default {
 
   .mesage {
     display: flex;
+    flex-direction: column;
     border: 2px solid v-bind(themeColors.background_color_1);
     justify-content: space-between;
     width: 70%;
