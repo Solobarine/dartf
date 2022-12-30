@@ -155,6 +155,7 @@ export default {
 </script>
 
 <style scoped>
+  @media only screen and (min-width: 768px) {
   .home {
     display: flex;
     flex-direction: column;
@@ -290,5 +291,6 @@ export default {
     padding: 12px 20px;
     border-radius: 15px;
     border: 2px solid v-bind(themeColors.color_1);
-  }
+}
+}
 </style>

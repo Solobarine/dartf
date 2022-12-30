@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="footer">
   <div class="social-media">
     <i class="fa-brands fa-facebook"></i>
     <i class="fa-brands fa-linkedin"></i>
@@ -24,8 +24,8 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  padding: 20px;
+  .footer {
+    padding: 20px;
     background-color: v-bind(themeColors.background_color_4);
   }
 
@@ -51,5 +51,19 @@ export default {
     text-align: center;
     font-size: 16px;
     margin-top: 25px;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .social-media {
+      width: 70%;
+    }
+
+    i {
+      font-size: 16px;
+    }
+
+    p {
+      font-size: 14px;
+    }
   }
 </style>

@@ -114,6 +114,7 @@ export default {
 </script>
 
 <style scoped>
+    @media only screen and (min-width: 768px) {
   .container {
     width: 80%;
     height: 80%;
@@ -258,4 +259,5 @@ export default {
     border-radius: 12px;
     background-color: v-bind(themeColors.background_color_3);
   }
+}
 </style>

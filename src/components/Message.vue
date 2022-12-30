@@ -93,6 +93,7 @@ export default {
 </script>
 
 <style scoped>
+  @media only screen and (min-width: 768px) {
   .container {
     width: 80%;
     display: flex;
@@ -131,4 +132,5 @@ export default {
   .mesage > p {
     font-size: 25px;
   }
+}
 </style>
