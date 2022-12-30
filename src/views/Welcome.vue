@@ -24,7 +24,7 @@ export default {
 <style scoped>
   .container {
     border: 2px solid black;
-    height: 80vh;
+    height: 760px;
     background-image: linear-gradient(45deg, v-bind(themeColors.background_color_1), v-bind(themeColors.background_color_2));
   }
 

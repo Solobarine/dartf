@@ -1,7 +1,9 @@
 <template>
+  <div class="parent">
   <Header />
   <router-view></router-view>
   <Footer />
+  </div>
 </template>
 
 <script>
@@ -25,6 +27,11 @@ export default {
     padding: 0;
     box-sizing: border-box;
     font-family: Poppins, sans-serif;
+  }
+
+  .parent {
+    width: 1900px;
+    height: 760px;
   }
 
   h2, p {

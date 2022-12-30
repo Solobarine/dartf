@@ -95,7 +95,7 @@ export default {
 
   .sign-up {
     color: #00f;
-    height: 80vh;
+    height: 760px;
   }
 
   .contents {

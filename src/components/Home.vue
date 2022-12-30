@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="home">
     <h1 class="dashboard">Dashboard</h1>
     <div id="accountSummary">
       <div class="balanceInfo">
@@ -29,156 +29,76 @@
     <div class="cashFlow">
       <div class="deposits">
         <h3>Recent Deposits</h3>
-        <div class="">
-          <i class="fa-solid fa-circle-user"></i>
-          <div>
+        <div class="user">
+          <i class="fa-solid fa-circle-user dep"></i>
+          <div class="t-div">
             <p class="t-name">Solly</p>
-            <p class="time">28-11-2022 at 08:00</p>
+            <p class="time">28-11-2022</p>
           </div>
           <p class="dinero">$450</p>
         </div>
-         <div class="">
-          <i class="fa-solid fa-circle-user"></i>
-          <div>
+         <div class="user">
+          <i class="fa-solid fa-circle-user dep"></i>
+          <div class="t-div">
             <p class="t-name">Solly</p>
-            <p class="time">28-11-2022 at 08:00</p>
+            <p class="time">28-11-2022</p>
           </div>
           <p class="dinero">$450</p>
         </div>
-         <div class="">
-          <i class="fa-solid fa-circle-user"></i>
-          <div>
+        <div class="user">
+          <i class="fa-solid fa-circle-user dep"></i>
+          <div class="t-div">
             <p class="t-name">Solly</p>
-            <p class="time">28-11-2022 at 08:00</p>
+            <p class="time">28-11-2022</p>
           </div>
           <p class="dinero">$450</p>
         </div>
-           <div class="">
-          <i></i>
+           <div class="user">
+          <i class="fa-solid fa-circle-user dep"></i>
           <div>
             <p class="t-name">Solly</p>
-            <p class="time">28-11-2022 at 08:00</p>
+            <p class="time">28-11-2022</p>
           </div>
-          <p>$450</p>
-        </div>
-
-         <div class="">
-          <i></i>
-          <div>
-            <p class="t-name">Solly</p>
-            <p class="time">28-11-2022 at 08:00</p>
-          </div>
-          <p>$450</p>
-        </div>
-         <div class="">
-          <i></i>
-          <div>
-            <p class="t-name">Solly</p>
-            <p class="time">28-11-2022 at 08:00</p>
-          </div>
-          <p>$450</p>
-        </div>
-         <div class="">
-          <i></i>
-          <div>
-            <p class="t-name">Solly</p>
-            <p class="time">28-11-2022 at 08:00</p>
-          </div>
-          <p>$450</p>
+          <p class="dinero">$450</p>
         </div>
       </div>
       <div class="transfers">
         <h3>Recent Transfers</h3>
-        <div class="">
-          <div class="send">
-            <i class="fa-solid fa-circle-user"></i>
-            <p>Solly</p>
-          </div>
+        <div class="send">
+          <i class="fa-solid fa-circle-user"></i>
+          <p>Solly</p>
           <p>to</p>
-          <div class="receive">
-            <i class="fa-solid fa-circle-user"></i>
-            <p>Fabio L.</p>
-          </div>
+          <i class="fa-solid fa-circle-user"></i>
+          <p>Fabio L.</p>
           <p>07-09-2022</p>
           <p class="amount">$25</p>
         </div>
-        <div class="">
-          <div class="send">
-            <i class="fa-solid fa-circle-user"></i>
-            <p>Solly</p>
-          </div>
+        <div class="send">
+          <i class="fa-solid fa-circle-user"></i>
+          <p>Solly</p>
           <p>to</p>
-          <div class="receive">
-            <i class="fa-solid fa-circle-user"></i>
-            <p>Daniel</p>
-          </div>
+          <i class="fa-solid fa-circle-user"></i>
+          <p>Daniel</p>
           <p>07-09-2022</p>
           <p class="amount">$82</p>
         </div>
-        <div class="">
-          <div class="send">
-            <i class="fa-solid fa-circle-user"></i>
-            <p>Solly</p>
-          </div>
+        <div class="send">
+          <i class="fa-solid fa-circle-user"></i>
+          <p>Solly</p>
           <p>to</p>
-          <div class="receive">
-            <i class="fa-solid fa-circle-user"></i>
-            <p>Papadoupolos</p>
-          </div>
+          <i class="fa-solid fa-circle-user"></i>
+          <p>Papadoupolos</p>
           <p>07-09-2022</p>
           <p class="amount">$127</p>
         </div>
-        <div class="">
-          <div class="send">
-            <i></i>
-            <p>Solly</p>
-          </div>
+        <div class="send">
+          <i class="fa-solid fa-circle-user"></i>
+          <p>Solly</p>
           <p>to</p>
-          <div class="receive">
-            <i></i>
-            <p>Fabio L.</p>
-          </div>
+          <i class="fa-solid fa-circle-user"></i>
+          <p>Fabio L.</p>
           <p>07-09-2022</p>
-          <p>amount</p>
-        </div>
-        <div class="">
-          <div class="send">
-            <i></i>
-            <p>Solly</p>
-          </div>
-          <p>to</p>
-          <div class="receive">
-            <i></i>
-            <p>Fabio L.</p>
-          </div>
-          <p>07-09-2022</p>
-          <p>amount</p>
-        </div>
-        <div class="">
-          <div class="send">
-            <i></i>
-            <p>Solly</p>
-          </div>
-          <p>to</p>
-          <div class="receive">
-            <i></i>
-            <p>Fabio L.</p>
-          </div>
-          <p>07-09-2022</p>
-          <p>amount</p>
-        </div>
-        <div class="">
-          <div class="send">
-            <i></i>
-            <p>Solly</p>
-          </div>
-          <p>to</p>
-          <div class="receive">
-            <i></i>
-            <p>Fabio L.</p>
-          </div>
-          <p>07-09-2022</p>
-          <p>amount</p>
+          <p class="amount">$900</p>
         </div>
       </div>
       <div class="cards">
@@ -235,11 +155,11 @@ export default {
 </script>
 
 <style scoped>
-  .container {
+  .home {
     display: flex;
     flex-direction: column;
     width: 80%;
-    height: 80vh;
+    height: 80%;
     padding: 20px;
     overflow-y: scroll;
   }
@@ -291,24 +211,59 @@ export default {
     text-align: center;
   }
 
-  .deposits div,
   .transfers div {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 22px;
-    padding: 5px;
+    display: grid;
+    grid-template-columns: 0.2fr 0.8fr 0.4fr 0.2fr 1fr 0.8fr 0.4fr  ;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .send {
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .user {
+    width: 100%;
+    height: 70px;
+    display: grid;
+    grid-template-columns: 0.4fr 1.2fr 0.4fr;
+    grid-template-rows: 1fr 0.7fr;
+    grid-area: 
+      "icons name amount"
+      "icons date amount"
+    ;
+  }
+
+  .t-name {
+    grid-area: name;
+    font-size: 21px;
+    font-weight: 500;
   }
 
   .dinero {
-    font-weight: 600;
+    grid: amount;
+    font-size: 22px;
+    font-weight: 700;
     color: green;
+    padding: 10px;
+  }
+
+  .deb {
+    padding-top: 40px;
   }
 
   .amount {
     font-size: 20px;
     font-weight: 600;
     color: red;
+  }
+
+  .deposits i {
+    text-align: center;
   }
 
   .deposits > div >div {

@@ -107,7 +107,7 @@ export default {
 <style scoped>
   .container {
     width: 80%;
-    height: 80vh;
+    height: 80%;
     display: flex;
     flex-direction: column;
     padding-top: 40px;
