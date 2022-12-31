@@ -162,6 +162,26 @@ export default {
     background-color: v-bind(themeColors.color_1);
   }
 
-  @media only screen and (min-width: 768px) {
+  @media only screen and (max-width: 768px) {
+    .container {
+      width: 100%;
+    }
+
+    .form {
+      margin: auto;
+      width: 80%;
+    }
+
+    select,
+    input {
+      width: 100%;
+      font-size: 13px;
+    }
+
+    .submit {
+      width: 40%;
+      font-size: 14px;
+      padding: 8px;
+    }
   }
 </style>

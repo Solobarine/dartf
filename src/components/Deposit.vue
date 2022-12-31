@@ -95,6 +95,24 @@ export default {
     background-color: v-bind(themeColors.color_1);
   }
 
-  @media only screen and (min-width: 768px) {
+  @media only screen and (max-width: 768px) {
+    .container {
+      width: 100%;
+    }
+
+    .deposit {
+      font-size: 25px;
+      margin-top: 20px;
+    }
+
+    #form {
+      width: 100%;
+      margin: 5px auto;
+      margin-top: -25px;
+    }
+
+    input {
+      height: 40px;
+    }
   }
 </style>

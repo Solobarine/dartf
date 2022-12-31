@@ -115,6 +115,7 @@ export default {
 
     .open {
       display: block;
+      position: absolute;
     }
 
     #close {
