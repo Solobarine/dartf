@@ -92,4 +92,22 @@ export default {
   img {
     width: 20%;
   }
+
+  @media only screen and (max-width: 768px) {
+    p {
+      font-size: 8px;
+    }
+
+    img {
+      width: 8%;
+    }
+
+    .accno {
+      font-size: 16px;
+    }
+
+    .fa-cc-visa {
+      font-size: 18px;
+    }
+  }
 </style>

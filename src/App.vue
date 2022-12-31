@@ -29,9 +29,12 @@ export default {
     font-family: Poppins, sans-serif;
   }
 
+  a, .active {
+    text-decoration: none;
+  }
+
   .parent {
     height: 97vh;
-    background-color: green;
   }
 
   .footer {
@@ -39,19 +42,17 @@ export default {
   }
 
   @media only screen and (min-width: 768px) {
+    .parent {
+      width: 1900px;
+      height: 760px;
+    }
 
+    h2, p {
+      color: #000;
+    }
 
-  .parent {
-    width: 1900px;
-    height: 760px;
+    a, .active {
+      text-decoration: none;
+    }
   }
-
-  h2, p {
-    color: #000;
-  }
-
-  a, .active {
-    text-decoration: none;
-  }
-}
 </style>

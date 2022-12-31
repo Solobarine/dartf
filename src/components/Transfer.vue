@@ -105,7 +105,6 @@ export default {
 </script>
 
 <style scoped>
-  @media only screen and (min-width: 768px) {
   .container {
     width: 80%;
     height: 80%;
@@ -162,5 +161,7 @@ export default {
     font-size: 18px;
     background-color: v-bind(themeColors.color_1);
   }
-}
+
+  @media only screen and (min-width: 768px) {
+  }
 </style>

@@ -155,7 +155,6 @@ export default {
 </script>
 
 <style scoped>
-  @media only screen and (min-width: 768px) {
   .home {
     display: flex;
     flex-direction: column;
@@ -291,6 +290,81 @@ export default {
     padding: 12px 20px;
     border-radius: 15px;
     border: 2px solid v-bind(themeColors.color_1);
-}
-}
+  }
+
+  @media only screen and (max-width: 768px) {
+    .home {
+      height: auto;
+      width: 100%;
+    }
+
+    #accountSummary {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      grid-template-areas: 
+        "box-1 nox-2"
+        "box-3 box-4"
+        ;
+      width: 100%;
+      grid-gap: 20px;
+      justify-content: flex-start;
+    }
+
+    #accountSummary > div {
+      font-size: 16px;
+      width: 100%;
+    }
+
+    .balanceInfo {
+      grid-area: box-1;
+    }
+
+    .acountInfo {
+      grid-area: box-2;
+    }
+
+    .cashFlow {
+      flex-direction: column;
+    }
+
+    .cashFlow > div {
+      width: 80%;
+      font-size: 12px;
+    }
+
+    .deposits {
+      margin-right: auto;
+      margin-bottom: 30px;
+    }
+
+    .transfers {
+      margin-left: auto;
+    }
+
+    .t-name {
+      font-size: 16px;
+    }
+
+    .dinero {
+      font-size: 16px;
+    }
+
+    .transfers div {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .send > * {
+      font-size: 10px;
+    }
+
+    .send > i {
+      display: none;
+    }
+
+    .cards {
+      display: none;
+    }
+  }
 </style>

@@ -52,7 +52,6 @@ export default {
 </script>
 
 <style scoped>
-  @media only screen and (min-width: 768px) {
   .container {
     display: flex;
     flex-direction: column;
@@ -95,5 +94,7 @@ export default {
     margin-top: 40px;
     background-color: v-bind(themeColors.color_1);
   }
-}
+
+  @media only screen and (min-width: 768px) {
+  }
 </style>
