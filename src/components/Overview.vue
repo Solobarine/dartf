@@ -13,6 +13,7 @@
       <router-link @click="closeMenu" to="/dashboard/deposit" class="menu"><i class="fa-solid fa-sack-dollar"></i><p class="deposit">Deposit</p></router-link>
       <router-link @click="closeMenu" to="/dashboard/transfer" class="menu"><i class="fa-solid fa-money-bill-transfer"></i><p class="transfer">Transfer</p></router-link>
       <router-link @click="closeMenu" to="/dashboard/messages" class="menu"><i class="fa-solid fa-message"></i><p class="message">Messages</p></router-link>
+      <router-link to="/dashboard/contact-us" class="menu"><i></i><p class="contact">Contact Us</p></router-link>
       <router-link @click="closeMenu" to="/dashboard/settings" class="menu"><i class="fa-solid fa-sliders"></i><p class="settings">Settings</p></router-link>
       <router-link @click="logout" to="/login" class="menu"><i class="fa-solid fa-right-from-bracket"></i><p class="logout">Logout</p></router-link>
     </div>

@@ -65,6 +65,25 @@ export default {
     background-color: v-bind(themeColor.color_1);
   }
 
-  @media only screen and (min-width: 768px) {
+  @media only screen and (max-width: 768px) {
+    .contact-page {
+      width: 100%;
+    }
+
+    #form {
+      width: 80%;
+      margin: auto;
+    }
+
+    .head {
+      font-size: 18px;
+      width: 80%;
+      margin-top: 30px;
+    }
+
+    input {
+      width: 100%;
+      margin-top: 20px;
+    }
   }
 </style>
