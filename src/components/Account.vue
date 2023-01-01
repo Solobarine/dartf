@@ -142,7 +142,8 @@ export default {
     border: none;
     border-radius: 10px;
     margin-top: 25px;
-    background-color: v-bind(themeColors.background_color_4);
+    background-color: v-bind(themeColors.background_color_1);
+    color: v-bind(themeColors.color_3);
   }
 
   #new:hover {
@@ -181,7 +182,11 @@ export default {
     margin-top: 20px;
     font-size: 20px;
     border-radius: 15px;
-    background-color: v-bind(themeColors.background_color_4);
+    background-color: v-bind(themeColors.color_2);
+  }
+
+  ::placeholder {
+    color: #000;
   }
 
   .close {
@@ -199,6 +204,7 @@ export default {
     padding-left: 0;
     margin: 25px auto;
     background: v-bind(themeColors.background_color_1);
+    color: v-bind(themeColors.color_3);
   }
 
   .cards {
@@ -214,7 +220,9 @@ export default {
     font-size: 26px;
     border-radius: 15px;
     border: none;
-    background: v-bind(themeColors.background_color_2);
+    text-align: center;
+    background: v-bind(themeColors.background_color_1);
+    color: v-bind(themeColors.color_3);
     margin-top: 10px;
     margin-bottom: 20px;
   }
@@ -250,6 +258,7 @@ export default {
   .stats > div > h3 {
     font-size: 25px;
     font-weight: 500;
+    color: v-bind(themeColors.color_3);
   }
 
   .stats > div {

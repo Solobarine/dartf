@@ -15,6 +15,11 @@ export default {
   components: {
     Header,
     Footer
+  },
+  data () {
+    return {
+      themeColors: this.$store.state.settings[0]
+    }
   }
 }
 </script>
@@ -29,12 +34,22 @@ export default {
     font-family: Poppins, sans-serif;
   }
 
+  :::placeholder {
+    color: v-bind(themeColors.color_3);;
+  }
+
   a, .active {
     text-decoration: none;
   }
 
+  h1, h2, li, p, button, [type~="submit"] {
+    color: v-bind(themeColors.color_3);
+    /*    color: #fff;*/
+  }
+
   .parent {
-    height: 97vh;
+    height: auto;
+    background-color: #6f7378;
   }
 
   .footer {
@@ -44,11 +59,7 @@ export default {
   @media only screen and (min-width: 768px) {
     .parent {
       width: 1900px;
-      height: 760px;
-    }
-
-    h2, p {
-      color: #000;
+      height: 870px;
     }
 
     a, .active {

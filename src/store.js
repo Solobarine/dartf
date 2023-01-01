@@ -9,14 +9,13 @@ export const store = createStore({
       transfers: [],
       messages: [],
       settings: [{
-        background_color_1: '#59bdbb',
-        background_color_2: '#fc9790',
-        background_color_3: '#f2f7f6',
-        background_color_4: '#ede',
-        color_1: '#427e7a',
-        color_2: '#1c3a3e',
-        color_3: '#b1babe'
-
+        background_color_1: '#18656a',
+        background_color_2: '#a53168',
+        background_color_3: '#04656a',
+        background_color_4: '#ff4081',
+        color_1: '#fff',
+        color_2: '#ede',
+        color_3: '#fff', 
       }]
     }
   },

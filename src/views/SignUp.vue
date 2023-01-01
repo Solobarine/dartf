@@ -119,7 +119,7 @@ export default {
     padding-left: 20px;
     border: none;
     border-radius: 10px;
-    background-color: v-bind(themeColors.background_color_3);
+    background-color: v-bind(themeColors.color_2);
   }
 
   #submit {
@@ -127,7 +127,7 @@ export default {
     padding-left: 0;
     font-size: 20px;
     margin: 12px;
-    background-color: v-bind(themeColors.color_1);
+    background-color: v-bind(themeColors.background_color_1);
   }
 
   a {

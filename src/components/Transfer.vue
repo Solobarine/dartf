@@ -111,7 +111,6 @@ export default {
     display: flex;
     flex-direction: column;
     padding-top: 40px;
-    background: v-bind(themeColors.background_color_3);
   }
 
   .transfer {
@@ -143,7 +142,11 @@ export default {
   }
 
   input {
-    background-color: v-bind(themeColors.background_color_4);
+    background-color: v-bind(themeColors.color_2);
+  }
+
+  ::placeholder {
+    color: #000;
   }
 
   .info,
@@ -151,7 +154,7 @@ export default {
     font-size: 20px;
     text-align: center;
     margin-top: 20px;
-    color: v-bind(themeColors.color_1);
+    color: v-bind(themeColors.color_2);
   }
 
   .submit {
@@ -159,7 +162,7 @@ export default {
     padding-left: 0;
     padding: 13px;
     font-size: 18px;
-    background-color: v-bind(themeColors.color_1);
+    background-color: v-bind(themeColors.background_color_1);
   }
 
   @media only screen and (max-width: 768px) {

@@ -75,7 +75,6 @@
     height: 80vh;
     display: flex;
     flex-direction: column;
-    background-color: v-bind(themeColors.background_color_3);
     padding-top: 30px;
   }
 
@@ -131,7 +130,7 @@
     padding: 7px;
     font-size: 24px;
     margin-bottom: 30px;
-    background-color: v-bind(themeColors.color_1);
+    background-color: v-bind(themeColors.background_color_1);
   }
 
   .chooseTheme,
@@ -164,7 +163,11 @@
     border-radius: 12px;
     font-size: 22px;
     padding-left: 20px;
-    background-color: v-bind(themeColors.background_color_4);
+    background-color: v-bind(themeColors.color_2);
+  }
+
+  ::placeholder {
+    color: #000;
   }
 
   .submit {
@@ -172,7 +175,7 @@
     font-size: 18px;
     margin-bottom: 20px;
     padding-left: 0;
-    background-color: v-bind(themeColors.color_1);
+    background-color: v-bind(themeColors.background_color_1);
   }
 
   @media only screen and (max-width: 768px) {

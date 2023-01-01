@@ -209,6 +209,7 @@ export default {
   .deposits h3,
   .transfers h3 {
     text-align: center;
+    color: v-bind(themeColors.color_3);
   }
 
   .transfers div {
