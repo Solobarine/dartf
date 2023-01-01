@@ -23,9 +23,13 @@
 <script>
 export default {
   name: 'OverView',
+  created () {
+    
+  },
   data () {
     return {
-      themeColors: this.$store.state.settings[0]
+      themeColors: this.$store.state.settings[0],
+      image: false
     }
   },
   methods: {

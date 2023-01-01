@@ -9,6 +9,7 @@
         <p class="field address">Address:  No 3 Hauzen Avenue, Del Rico Estate</p>
         <p class="field country">Country:  Nigeria</p>
         <p class="field state">State: Rivers</p>
+        <p class="field sex">Sex: Male</p>
         <p class="field accountNo">Account No:  1234567899</p>
       </div>
       <div class="cards">
