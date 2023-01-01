@@ -85,5 +85,10 @@ export default {
       width: 100%;
       margin-top: 20px;
     }
+
+    .submit {
+      font-size: 12px;
+      padding: 10px;
+    }
   }
 </style>

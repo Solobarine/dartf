@@ -210,7 +210,7 @@ export default {
   .cards {
     width: 35%;
     height: auto;
-    background: v-bind(themeColors.color_1); 
+    background: v-bind(themeColors.background_color_2); 
   }
 
   select {
@@ -321,6 +321,7 @@ export default {
 
     .stats > div {
       padding: 3px;
+      text-align: center;
     }
 
     .stats > div > p {
@@ -347,6 +348,12 @@ export default {
 
     .close {
       font-size: 14px;
+    }
+
+    .deposits h3,
+    .transfers h3,
+    .status h3 {
+      margin-top: 17px;
     }
   }
 </style>
