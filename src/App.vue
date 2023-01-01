@@ -42,7 +42,7 @@ export default {
     text-decoration: none;
   }
 
-  h1, h2, li, p, button, [type~="submit"] {
+  h1, h2, li, p, button, [type~="submit"], label {
     color: v-bind(themeColors.color_3);
     /*    color: #fff;*/
   }

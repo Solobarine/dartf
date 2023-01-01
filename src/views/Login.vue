@@ -96,8 +96,8 @@ export default {
     }
 
     .submit {
-      padding: 6px;
-      font-size: 14px;
+      padding: 8px;
+      font-size: 10px;
       width: 25%;
     }
 
