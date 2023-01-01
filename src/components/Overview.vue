@@ -1,5 +1,5 @@
 <template>
-  <p @click="openMenu" class="open">Open</p>
+  <i @click="openMenu" class="fa-solid fa-bars open"></i>
   <div class="overview hide">
     <div class="bio">
       <p @click="closeMenu" id="close">&#10005;</p>
@@ -13,7 +13,7 @@
       <router-link @click="closeMenu" to="/dashboard/deposit" class="menu"><i class="fa-solid fa-sack-dollar"></i><p class="deposit">Deposit</p></router-link>
       <router-link @click="closeMenu" to="/dashboard/transfer" class="menu"><i class="fa-solid fa-money-bill-transfer"></i><p class="transfer">Transfer</p></router-link>
       <router-link @click="closeMenu" to="/dashboard/messages" class="menu"><i class="fa-solid fa-message"></i><p class="message">Messages</p></router-link>
-      <router-link to="/dashboard/contact-us" class="menu"><i></i><p class="contact">Contact Us</p></router-link>
+      <router-link to="/dashboard/contact-us" class="menu"><i class="fa-solid fa-address-card"></i><p class="contact">Contact Us</p></router-link>
       <router-link @click="closeMenu" to="/dashboard/settings" class="menu"><i class="fa-solid fa-sliders"></i><p class="settings">Settings</p></router-link>
       <router-link @click="logout" to="/login" class="menu"><i class="fa-solid fa-right-from-bracket"></i><p class="logout">Logout</p></router-link>
     </div>
@@ -69,6 +69,21 @@ export default {
     border-radius: 50%;
     background: black;
     margin-bottom: 20px;
+  }
+
+  a {
+    width: 60%;
+    display: flex;
+    text-align: left;
+  }
+
+  .menu i {
+    margin-top: 5px;
+    font-size: 30px;
+  }
+
+  .menu p {
+    margin-left: 30px;
   }
 
   .greet,
@@ -148,8 +163,27 @@ export default {
       margin-bottom: 20px;
     }
 
+    .menu p {
+      margin-left: 0;
+    }
+
+    a {
+      display: block;
+      width: 100%;
+    }
+
      p {
       text-decoration: none;
+    }
+
+    i {
+      display: none;
+    }
+
+    .open {
+      display: block;
+      font-size: 20px;
+      margin: 10px;
     }
 
     .menus {

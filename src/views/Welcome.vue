@@ -59,35 +59,34 @@ export default {
   }
 
   @media only screen and (min-width: 768px) {
-  .container {
-    border: 2px solid black;
-    height: 760px;
-    background-image: linear-gradient(45deg, v-bind(themeColors.background_color_1), v-bind(themeColors.background_color_2));
-  }
+    .container {
+      border: 2px solid black;
+      height: 760px;
+      background-image: linear-gradient(45deg, v-bind(themeColors.background_color_1), v-bind(themeColors.background_color_2));
+    }
 
-  .title {
-    text-align: center;
-    font-size: 75px;
-    margin-top: 160px;
-  }
+    .title {
+      text-align: center;
+      font-size: 75px;
+      margin-top: 160px;
+    }
 
-  .subtitle {
-    text-align: center;
-    font-size: 30px;
-    margin-top: 20px;
-  }
+    .subtitle {
+      text-align: center;
+      font-size: 30px;
+      margin-top: 20px;
+    }
 
-  .buttons {
-    margin-left: 80%;
-    padding: 14px;
-    width: 18%;
+    .buttons {
+      margin-left: 80%;
+      padding: 14px;
+      width: 18%;
+    }
 
-  }
-
-  .buttons > a > button {
-    font-size: 20px;
-    padding: 14px;
-    width: 120px;
-  }
+    .buttons > a > button {
+      font-size: 20px;
+      padding: 14px;
+      width: 120px;
+    }
   }
 </style>

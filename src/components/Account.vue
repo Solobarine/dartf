@@ -70,8 +70,8 @@ export default {
   data () {
     return {
       themeColors: this.$store.state.settings[0],
-      accountDetails: false,
-      createCard: true,
+      accountDetails: true,
+      createCard: false,
       cards: ['8964 xxxx xxxx 9012',  '3512 xxxx xxxx 9012', '3567 xxxx xxxx 9012'],
       tarjeta: ''
     }
@@ -227,7 +227,7 @@ export default {
 
   .stats {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 100%;
     margin: auto;
     margin-top: 10px;
