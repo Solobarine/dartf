@@ -131,4 +131,25 @@ export default {
   .mesage > p {
     font-size: 25px;
   }
+
+  @media only screen and (max-width: 768px) {
+    .container {
+      margin: auto;
+    }
+
+    .mesage {
+      width: 95%;
+      margin: auto;
+      margin-bottom: 20px;
+    }
+
+    .mesage > p {
+      font-size: 16px;
+    }
+
+    .sender {
+      font-size: 20px;
+      font-weight: 600;
+    }
+  }
 </style>

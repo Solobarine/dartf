@@ -30,6 +30,28 @@
 </script>
 
 <style scoped>
+  header {
+    align-content: center;
+    padding: 10px;
+    background: v-bind(themeColors.background_color_1);
+  }
+
+  .fa-arrows-to-circle {
+    padding-top: 6px;
+  }
+
+  #company {
+    width: 10%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .navLinks,
+  #icons {
+    display: none;
+  }
+
+  @media only screen and (min-width: 768px) {
   * {
     margin: 0;
     padding: 0;
@@ -41,6 +63,7 @@
     width: 5%;
     align-items: center;
     justify-content: space-evenly;
+    margin-top: -8px;
   }
 
   #company > * {
@@ -51,7 +74,7 @@
     display: flex;
     text-align: center;
     justify-content: space-between;
-    padding: 14px;
+    padding: 35px;
     background-image: linear-gradient(to right, v-bind(themeColors.background_color_1), #fff 25%, v-bind(themeColors.background_color_2));
   }
 
@@ -61,6 +84,7 @@
     text-align: center;
     justify-content: space-between;
     font-size: 20px;
+    margin-top: -8px;
   }
 
   a {
@@ -71,10 +95,12 @@
     width: 5%;
     display: flex;
     justify-content: space-evenly;
+    margin-top: -8px;
   }
 
   #icons > a {
     font-size: 20px;
     text-decoration: none;
   }
+}
 </style>

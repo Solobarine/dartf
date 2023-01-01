@@ -27,4 +27,12 @@ export default {
   .home {
     height: 100%;
   }
+
+  @media only screen and (max-width: 768px) {
+    .container {
+      position: relative;
+      flex-direction: column;
+      height: auto;
+    }
+  }
 </style>

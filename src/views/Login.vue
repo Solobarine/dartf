@@ -53,7 +53,7 @@ export default {
     flex-direction: column;
     padding: 20px;
     padding-top: 60px;
-    margin-left: 35%;
+    margin: auto;
     align-items: center;
   }
 
@@ -83,5 +83,21 @@ export default {
 
   a {
     text-decoration: none;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .contents {
+      width: 90%;
+    }
+
+    .submit {
+      padding: 6px;
+      font-size: 14px;
+      width: 25%;
+    }
+
+    #signup {
+      font-size: 14px;
+    }
   }
 </style>

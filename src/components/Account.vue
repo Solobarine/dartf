@@ -40,15 +40,15 @@
     <h2 v-if="accountDetails">Customer Statistics</h2>
     <div v-if="accountDetails" class="stats">
       <div class="deposits">
-        <h3>Number of Deposits Made</h3>
+        <h3>Deposits Made</h3>
         <p>8</p>
       </div>
       <div class="transfers">
-        <h3>Number of Transfers Made</h3>
+        <h3>Transfers Made</h3>
         <p>14</p>
       </div>
       <div class="failed">
-        <h3>Number of Failed Transactions</h3>
+        <h3>Failed Transactions</h3>
         <p>5</p>
       </div>
       <div class="status">
@@ -203,8 +203,7 @@ export default {
   .cards {
     width: 35%;
     height: auto;
-    background: v-bind(themeColors.color_1);
-    
+    background: v-bind(themeColors.color_1); 
   }
 
   select {
@@ -228,7 +227,7 @@ export default {
 
   .stats {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 100%;
     margin: auto;
     margin-top: 10px;
@@ -257,5 +256,87 @@ export default {
     padding: 15px;
     border-radius: 12px;
     background-color: v-bind(themeColors.background_color_3);
+  }
+
+  @media only screen and (max-width: 768px) {
+    .container {
+      width: 90%;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 20px;
+    }
+
+    .section {
+      flex-direction: column-reverse;
+    }
+
+    .accountDetails > p {
+      font-size: 13px;
+    }
+
+    .cards {
+      width: 80%;
+      margin: auto;
+    }
+
+    .cards .container {
+      height: 100px;
+    }
+
+    #new {
+      padding: 10px;
+      font-size: 10px;
+    }
+
+    select {
+      font-size: 12px;
+      font-weight: 600;
+      height: 35px;
+      margin-bottom: 10px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      grid-area: 
+      "box-1 box-2"
+      "box-3 box-4";
+      row-gap: 20px;
+      column-gap: 20px;
+      padding: 0;
+    }
+
+    .stats > div {
+      padding: 3px;
+    }
+
+    .stats > div > p {
+      font-size: 12px;
+    }
+
+    .stats > div > h3 {
+      font-size: 15px;
+    }
+
+    .create-card form {
+      width: 80%;
+    }
+
+    form > input {
+      font-size: 15px;
+    }
+
+    #submit {
+      width: 40%;
+      height: 40px;
+      font-size: 13px;
+    }
+
+    .close {
+      font-size: 14px;
+    }
   }
 </style>
