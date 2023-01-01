@@ -21,5 +21,14 @@ export default {
 <style scoped>
   .container {
     display: flex;
+    height: 760px;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      height: auto;
+    }
+    
   }
 </style>

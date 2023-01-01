@@ -2,6 +2,7 @@
   <div class="sign-up">
     <div class="contents">
       <h2 id="sign">Please Create an Account</h2>
+      <div class="fields">
       <input type="text" v-model="firstName" name="firstName" placeholder="First Name" minlength="2" maxlength="40" required>
       <input type="text" v-model="lastName" name="lastName" placeholder="Last Name" minlength="2" maxlength="40" required>
       <input type="password" v-model="password" name="password" id="password" placeholder="Password" minlength="8" maxlength="15" required>
@@ -29,6 +30,7 @@
       </select>
       <input v-on:click="createAccount" id="submit" type="submit" value="Submit">
       <p>Already a User, <router-link to="/login" id="login">Sign in</router-link></p>
+    </div>
     </div>
   </div>
 </template>
@@ -89,19 +91,20 @@ export default {
   #sign {
     margin-top: 20px;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 5px;
     font-size: 20px;
   }
 
   .sign-up {
     color: #00f;
-    height: 80vh;
+    height: 760px;
+    overflow-y: scroll;
   }
 
-  .contents {
+  .fields {
     width: 30%;
     height: 95%;
-    margin-left: 35%;
+    margin: auto;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -112,6 +115,7 @@ export default {
   select {
     width: 80%;
     height: 40px;
+    margin-top: 20px;
     padding-left: 20px;
     border: none;
     border-radius: 10px;
@@ -129,5 +133,33 @@ export default {
   a {
     text-decoration: none;
     text-decoration-color: none;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .sign-up {
+    }
+
+    #sign {
+      margin-bottom: 10px;
+    }
+
+    .fields {
+      width: 70%;
+      margin: auto;
+      border: 2px dashed gray;
+    }
+
+    input,
+    select {
+      width: 80%;
+      margin: auto;
+      margin-bottom: 15px;
+
+    }
+
+    #submit {
+      font-size: 14px;
+      width: 65px;
+    }
   }
 </style>

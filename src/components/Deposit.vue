@@ -2,7 +2,7 @@
   <div class="container">
     <h1 class="deposit">Make a Deposit</h1>
     <form id="form">
-      <input v-model="amount" type="number" name="amount" id="amount">
+      <input v-model="amount" type="number" name="amount" id="amount" placeholder="Enter Amount">
       <input @click="makeDeposit" type="submit" class="submit" value="Submit">
     </form>
   </div>
@@ -82,11 +82,37 @@ export default {
     background-color: v-bind(themeColors.background_color_3);
   }
 
+  #amount {
+    font-size: 17px;
+    padding-left: 20px;
+  }
+
   .submit {
     width: 30%;
     padding: 12px;
     font-size: 18px;
     margin-top: 40px;
     background-color: v-bind(themeColors.color_1);
+  }
+
+  @media only screen and (max-width: 768px) {
+    .container {
+      width: 100%;
+    }
+
+    .deposit {
+      font-size: 25px;
+      margin-top: 20px;
+    }
+
+    #form {
+      width: 100%;
+      margin: 5px auto;
+      margin-top: -25px;
+    }
+
+    input {
+      height: 40px;
+    }
   }
 </style>

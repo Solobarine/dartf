@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <h2 class="transfer">Make Your Transfer</h2>
-    <form class="form" action="#" method="post">
+    <form class="form">
       <select v-model="card" name="card" id="cards">
         <option disabled value="">Choose Your Card</option>
         <option v-bind:key="card" v-for="card in cards">{{card}}</option>
@@ -50,7 +50,8 @@ export default {
   data () {
     return {
       cards: this.$store.state.cards,
-      card: 'You don\'t have a card',
+      card: '',
+      iscard: 'You don\'t have a card',
       firstName: this.$store.state.userDetails.firstName,
       lastName: this.$store.state.userDetails.lastName,
       receiverFirstName: '',
@@ -106,7 +107,7 @@ export default {
 <style scoped>
   .container {
     width: 80%;
-    height: 80vh;
+    height: 80%;
     display: flex;
     flex-direction: column;
     padding-top: 40px;
@@ -136,6 +137,11 @@ export default {
     padding-left: 20px;
   }
 
+  select {
+    font-size: 20px;
+    text-align: center;
+  }
+
   input {
     background-color: v-bind(themeColors.background_color_4);
   }
@@ -154,5 +160,28 @@ export default {
     padding: 13px;
     font-size: 18px;
     background-color: v-bind(themeColors.color_1);
+  }
+
+  @media only screen and (max-width: 768px) {
+    .container {
+      width: 100%;
+    }
+
+    .form {
+      margin: auto;
+      width: 80%;
+    }
+
+    select,
+    input {
+      width: 100%;
+      font-size: 13px;
+    }
+
+    .submit {
+      width: 40%;
+      font-size: 14px;
+      padding: 8px;
+    }
   }
 </style>

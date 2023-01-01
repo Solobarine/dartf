@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="contact-page">
     <form id="form">
       <h2 class="head">Send Your Suggestions to Us. We appreciate Your Feedback.</h2>
       <input type="email" name="email" id="mail" value="Enter Your Email" required>
@@ -21,8 +21,8 @@ export default {
 </script>
 
 <style scoped>
-  .container {
-    height: 80vh;
+  .contact-page {
+    height: 80%;
     width: 80%;
   }
 
@@ -63,5 +63,27 @@ export default {
     padding: 12px;
     font-size: 18px;
     background-color: v-bind(themeColor.color_1);
+  }
+
+  @media only screen and (max-width: 768px) {
+    .contact-page {
+      width: 100%;
+    }
+
+    #form {
+      width: 80%;
+      margin: auto;
+    }
+
+    .head {
+      font-size: 18px;
+      width: 80%;
+      margin-top: 30px;
+    }
+
+    input {
+      width: 100%;
+      margin-top: 20px;
+    }
   }
 </style>

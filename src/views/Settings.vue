@@ -17,13 +17,13 @@
     </div>
     <form v-if="showUpdateForm" class="form" action="#">
       <h2 class="changeDetails">Update Your Details</h2>
-        <input v-model="phoneNo" type="number" id="phoneNo" minlength="10" maxlength="11" required>
-        <input type="email" id="mail" required>
+        <input v-model="phoneNo" type="number" id="phoneNo" minlength="10" maxlength="11" placeholder="Enter New Phone Number" required>
+        <input type="email" id="mail" placeholder="Enter New Email" required>
         <input @click="showConfirmation" type="submit" class="submit" value="Update">
       </form>
       <div v-if="updateDetails && showUpdateForm" class="confirm">
         <h3 class="enter">Enter Your Password.</h3>
-        <input type="password" name="password" id="password" required>
+        <input type="password" name="password" id="password" placeholder="Enter Your Password" required>
         <input v-on:click="confirmChanges" type="submit" class="submit" value="Submit">
       </div>
     </div>
@@ -35,7 +35,7 @@
     name: 'SettingsPage',
     data () {
       return {
-        showThemeSetting: false,
+        showThemeSetting: true,
         showUpdateForm: false,
         updateDetails: false,
         count: 0,
@@ -50,12 +50,12 @@
      this.$store.dispatch('changeTheme', this.theme) 
     },
     showThemeOption () {
-      this.showThemeSetting = !this.showThemeSetting
+      this.showThemeSetting = true
       this.showUpdateForm = false
       this.updateDetails = false
     },
     showPopUp () {
-      this.showUpdateForm = !this.showUpdateForm
+      this.showUpdateForm = true
       this.updateDetails = false
       this.showThemeSetting = false
     },
@@ -162,13 +162,53 @@
     margin-top: 25px;
     border: none;
     border-radius: 12px;
+    font-size: 22px;
+    padding-left: 20px;
     background-color: v-bind(themeColors.background_color_4);
   }
 
   .submit {
-    width: 20%;
+    width: 13%;
     font-size: 18px;
     margin-bottom: 20px;
+    padding-left: 0;
     background-color: v-bind(themeColors.color_1);
+  }
+
+  @media only screen and (max-width: 768px) {
+    .container {
+      width: 100%;
+    }
+
+    ul {
+      width: 90%;
+      justify-content: space-between;
+      text-align: center;
+      margin: auto;
+    }
+
+    ul > li {
+      font-size: 16px;
+    }
+
+    select {
+      width: 80%;
+      font-size: 14px;
+    }
+
+    #saveTheme {
+      width: 70px;
+      font-size: 15px;
+    }
+
+    input {
+      width: 90%;
+      font-size: 10px;
+    }
+
+    .submit {
+      width: 50%;
+      font-size: 16px;
+    }
   }
 </style>
