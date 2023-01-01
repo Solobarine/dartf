@@ -97,7 +97,7 @@ export default {
     width: 80%;
     display: flex;
     flex-direction: column;
-    height: 80vh;
+    height: 80%;
     overflow-y: scroll;
   }
 
@@ -111,6 +111,8 @@ export default {
     display: flex;
     flex-direction: column;
     padding-left: 20px;
+    height: 100%;
+    overflow-y: scroll;
   }
 
   .mesage {

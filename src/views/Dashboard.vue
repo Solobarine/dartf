@@ -21,5 +21,10 @@ export default {
 <style scoped>
   .container {
     display: flex;
+    height: 760px;
+  }
+
+  .home {
+    height: 100%;
   }
 </style>

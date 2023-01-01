@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="contact-page">
     <form id="form">
       <h2 class="head">Send Your Suggestions to Us. We appreciate Your Feedback.</h2>
       <input type="email" name="email" id="mail" value="Enter Your Email" required>
@@ -21,8 +21,8 @@ export default {
 </script>
 
 <style scoped>
-  .container {
-    height: 80vh;
+  .contact-page {
+    height: 80%;
     width: 80%;
   }
 

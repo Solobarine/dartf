@@ -5,7 +5,7 @@
         <i></i>
         <p class="c-name">dart</p>
       </div>
-      <i class="fa-solid fa-microchip"></i>
+      <img src="../assets/chip.png" alt="Micro Chip">
     </section>
     <div class="info">
       <p class="name">Solly</p>
@@ -87,5 +87,9 @@ export default {
     text-align: center;
     font-size: 25px;
     color: #fff;
+  }
+
+  img {
+    width: 20%;
   }
 </style>
