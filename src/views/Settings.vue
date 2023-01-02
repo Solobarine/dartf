@@ -39,7 +39,7 @@
         showUpdateForm: false,
         updateDetails: false,
         count: 0,
-        theme: 'light',
+        theme: null,
         dark: false,
         light: true,
         themeColors: this.$store.state.settings[0]

@@ -29,7 +29,7 @@ export default {
 
 <style scoped>
   .container {
-    background: linear-gradient(135deg, v-bind(themeColors.background_color_1), v-bind(themeColors.background_color_4));
+    background: linear-gradient(135deg, v-bind(themeColors.background_color_1), v-bind(themeColors.background_color_2));
     padding: 0;
     font-size: 18px;
     display: flex;

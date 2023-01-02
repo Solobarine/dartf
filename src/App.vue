@@ -49,7 +49,7 @@ export default {
 
   .parent {
     height: auto;
-    background-color: #6f7378;
+    background-color: v-bind(themeColors.background_color_5);
   }
 
   .footer {
