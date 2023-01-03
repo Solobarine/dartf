@@ -100,6 +100,11 @@ export default {
     font-size: 35px;
   }
 
+  h3,
+  span {
+    color: v-bind(themeColors.color_3);
+  }
+
   .intro {
     font-size: 30px;
     font-weight: 600;

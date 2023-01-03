@@ -62,7 +62,7 @@ export default {
     padding-left: 0;
     padding: 12px;
     font-size: 18px;
-    background-color: v-bind(themeColor.color_1);
+    background-color: v-bind(themeColor.background_color_1);
   }
 
   @media only screen and (max-width: 768px) {
@@ -84,6 +84,11 @@ export default {
     input {
       width: 100%;
       margin-top: 20px;
+    }
+
+    .submit {
+      font-size: 12px;
+      padding: 10px;
     }
   }
 </style>

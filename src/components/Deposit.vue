@@ -79,7 +79,11 @@ export default {
     height: 50px;
     border: none;
     border-radius: 10px;
-    background-color: v-bind(themeColors.background_color_3);
+    background-color: v-bind(themeColors.color_2);
+  }
+
+  ::placeholder {
+    color: #000;
   }
 
   #amount {
@@ -92,7 +96,7 @@ export default {
     padding: 12px;
     font-size: 18px;
     margin-top: 40px;
-    background-color: v-bind(themeColors.color_1);
+    background-color: v-bind(themeColors.background_color_1);
   }
 
   @media only screen and (max-width: 768px) {

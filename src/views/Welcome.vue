@@ -25,7 +25,7 @@ export default {
   .container {
     width: 100%;
     background-image: linear-gradient(90deg, v-bind(themeColors.background_color_1), v-bind(themeColors.background_color_2));
-    height: 100%;
+    height: 83vh;
     margin-top: -25px;
   }
 

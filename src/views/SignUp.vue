@@ -8,7 +8,7 @@
       <input type="password" v-model="password" name="password" id="password" placeholder="Password" minlength="8" maxlength="15" required>
       <span id="passwdError">{{error}}</span>
       <input type="password" v-model="confirmPassword" name="confirmPassword" id="c-password" placeholder="Confirm Password" required>
-      <input type="date" name="date" id="date" v-model="date_of_birth" required>
+      <label for="date">Date of Birth</label><input type="date" name="date" id="date" v-model="date_of_birth" required>
       <input type="email" v-model="email" name="email" placeholder="Email" required>
       <input type="text" v-model="phoneNo" name="phoneNo" placeholder="Phone Number" required>
       <select name="countries" v-model="userCountry" required>
@@ -119,7 +119,7 @@ export default {
     padding-left: 20px;
     border: none;
     border-radius: 10px;
-    background-color: v-bind(themeColors.background_color_3);
+    background-color: v-bind(themeColors.color_2);
   }
 
   #submit {
@@ -127,7 +127,7 @@ export default {
     padding-left: 0;
     font-size: 20px;
     margin: 12px;
-    background-color: v-bind(themeColors.color_1);
+    background-color: v-bind(themeColors.background_color_1);
   }
 
   a {
@@ -146,7 +146,6 @@ export default {
     .fields {
       width: 70%;
       margin: auto;
-      border: 2px dashed gray;
     }
 
     input,
@@ -158,7 +157,7 @@ export default {
     }
 
     #submit {
-      font-size: 14px;
+      font-size: 12px;
       width: 65px;
     }
   }

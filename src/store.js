@@ -11,18 +11,18 @@ export const store = createStore({
       settings: [{
         background_color_1: '#59bdbb',
         background_color_2: '#fc9790',
-        background_color_3: '#f2f7f6',
+        background_color_3: '#f6f7f6',
         background_color_4: '#ede',
+        background_color_5: '#fff',
         color_1: '#427e7a',
-        color_2: '#1c3a3e',
-        color_3: '#b1babe'
-
+        color_2: '#ede',
+        color_3: '#000', 
       }]
     }
   },
   mutations: {
     createUser: async(state, payload) => {
-      const url = 'http://localhost:8000/signup'
+      const url = 'https://pure-harbor-30545.herokuapp.com/user/signup'
       const options = {
         "method": "POST",
         "body": JSON.stringify(payload),
@@ -88,14 +88,37 @@ export const store = createStore({
       }
       
     },
-    changeTheme: (state, payload) => {
-      let settings = []
+    toggleTheme: (state, payload) => {
+      let colors = []
       if (payload == 'light') {
-        settings = [{mode: 'light', 'background-color': '', color: ''}]
+        colors = [{
+          mode: 'light',
+          'background_color_1': '#59bdbb',
+          'background_color_2': 'fc9790',
+          'background_color_3': '#f6f7f6',
+          'background_color_4': '#ede',
+          'background_color_5': '#fff',
+          'color_1': '#427e7a',
+          'color_2': '#ede',
+          'color_3': '#fff'
+        }]
+        state.settings[0] = colors[0]
+        console.log('Light Theme', state.settings[0])
       } else {
-        settings = [{mode: 'dark', 'background-color': '', color: ''}]
+        colors = [{
+          mode: 'dark',
+          'background_color_1': '#18656a',
+          'background_color_2': 'a53168',
+          'background_color_3': '#04656a',
+          'background_color_4': '#ff4081',
+          'background_color_5': '#6f7378',
+          'color': '#fff',
+          'color_2': '#ede',
+          'color_3': '#fff'
+        }]
+        state.settings[0] = colors[0]
+        console.log('Dark Theme', state.settings[0])
       }
-      state.settings = settings
     }
   },
   actions: {
@@ -112,7 +135,8 @@ export const store = createStore({
       context.commit('transfer', payload)
     },
     changeTheme: (context, payload) => {
-      context.commit('changeTheme', payload)
+      context.commit('toggleTheme', payload)
+      console.log('Clicking')
     }
   }
 });
