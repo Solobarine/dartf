@@ -64,15 +64,20 @@ export default {
     border-radius: 10px;
     padding-left: 20px;
     border: none;
-    background-color: v-bind(themeColors.background_color_3);
+    background-color: v-bind(themeColors.color_2);
   }
+
+  ::placeholder {
+    color: #fff;
+  }
+
   .submit {
     padding: 12px;
     font-size: 18px;
     border-radius: 10px;
     width: 40%;
     border: none;
-    background-color: v-bind(themeColors.color_1);
+    background-color: v-bind(themeColors.background_color_1);
     color: #fff;
   }
 
@@ -91,8 +96,8 @@ export default {
     }
 
     .submit {
-      padding: 6px;
-      font-size: 14px;
+      padding: 8px;
+      font-size: 10px;
       width: 25%;
     }
 
