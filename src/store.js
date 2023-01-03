@@ -22,7 +22,7 @@ export const store = createStore({
   },
   mutations: {
     createUser: async(state, payload) => {
-      const url = 'http://localhost:8000/signup'
+      const url = 'https://pure-harbor-30545.herokuapp.com/user/signup'
       const options = {
         "method": "POST",
         "body": JSON.stringify(payload),
@@ -98,7 +98,7 @@ export const store = createStore({
           'background_color_3': '#f6f7f6',
           'background_color_4': '#ede',
           'background_color_5': '#fff',
-          'color_1': '#64ffda',
+          'color_1': '#427e7a',
           'color_2': '#ede',
           'color_3': '#fff'
         }]
