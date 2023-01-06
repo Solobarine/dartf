@@ -11,6 +11,14 @@
 <script>
 export default {
   name: 'DepositView',
+  computed: {
+    themeColors () {
+      return this.$store.state.settings[0]
+    },
+    accountNo () {
+      return this.$store.state.userDetails[0].account_no
+    }
+  },
    created () {
     if(this.$cookies.isKey('user') == true && (this.$store.state.userDetails.length == 0)) {
       const user = this.$cookies.get('user').json()
@@ -38,8 +46,6 @@ export default {
    data () {
      return {
       amount: '',
-      accountNo: '',
-      themeColors: this.$store.state.settings[0]
      }
   },
   methods: {
@@ -56,12 +62,18 @@ export default {
     display: flex;
     flex-direction: column;
     width: 80%;
+    background-color: v-bind(themeColors.background_color_5);
   }
 
   .deposit {
     text-align: center;
     font-size: 35px;
     margin: 30px;
+  }
+  
+  h1,
+  .submit {
+    color: v-bind(themeColors.color_3);
   }
 
   #form {

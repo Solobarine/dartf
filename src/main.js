@@ -9,5 +9,5 @@ const app = createApp(App)
 
 app.use(router)
 app.use(store)
-app.use(VueCookies, {expires: '3d'})
+app.use(VueCookies, {expires: '3d', path: '/'})
 app.mount('#app')

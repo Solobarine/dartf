@@ -23,6 +23,23 @@
 <script>
 export default {
   name: 'TransferView',
+  computed: {
+    themeColors () {
+      return this.$store.state.settings[0]
+    },
+    firstName () {
+      return this.$store.state.userDetails[0].first_name
+    },
+    lastName () {
+      return this.$store.state.userDetails[0].last_name
+    },
+    receiverFirstName () {
+      return this.$store.state.transferReceipient.receiverFirstName
+    },
+    receiverLastName () {
+      return this.$store.state.transferReceipient.receiverLastName
+    }
+  },
   created () {
     if(this.$cookies.isKey('user') == true && (this.$store.state.userDetails.length == 0)) {
       const user = this.$cookies.get(user).json()
@@ -52,16 +69,11 @@ export default {
       cards: this.$store.state.cards,
       card: '',
       iscard: 'You don\'t have a card',
-      firstName: this.$store.state.userDetails.firstName,
-      lastName: this.$store.state.userDetails.lastName,
-      receiverFirstName: '',
-      receiverLastName: '',
       receiverAccNo: '',
       amount: '',
       pin: '',
       description: '',
-      transferRequest: '',
-      themeColors: this.$store.state.settings[0]
+      transferRequest: ''
     }
   },
   methods: {
@@ -90,8 +102,9 @@ export default {
             "Content-Type": "application/json"
           }
         }
-        const response = fetch (url, options).then(res => res.json()).then(res => console.log(res)).catch(err => console.log(err))
-        if (!response.err) {
+        const response = fetch (url, options)
+        const json = response.json()
+        if (json.res == 'Insuficient Funds') {
           return this.transferRequest = 'Your Transfer Request has been accepted'
         } else {
           return this.transferRequest = 'Transaction Failed'
@@ -111,6 +124,7 @@ export default {
     display: flex;
     flex-direction: column;
     padding-top: 40px;
+    background-color: v-bind(themeColors.background_color_5);
   }
 
   .transfer {
@@ -124,6 +138,12 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  h2,
+  p,
+  .submit {
+    color: v-bind(themeColors.color_3);
   }
 
   select,
@@ -154,7 +174,7 @@ export default {
     font-size: 20px;
     text-align: center;
     margin-top: 20px;
-    color: v-bind(themeColors.color_2);
+    color: v-bind(themeColors.color_3);
   }
 
   .submit {

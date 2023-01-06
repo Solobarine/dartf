@@ -4,20 +4,20 @@
     <div v-if="accountDetails" class="section">
       <div class="accountDetails">
         <h2>Customer Bio</h2>
-        <p class="field name">Name:  Akpuru Solomon Barine</p>
-        <p class="field email">Email:  solobarine@gmail.com</p>
-        <p class="field address">Address:  No 3 Hauzen Avenue, Del Rico Estate</p>
-        <p class="field country">Country:  Nigeria</p>
-        <p class="field state">State: Rivers</p>
-        <p class="field sex">Sex: Male</p>
-        <p class="field accountNo">Account No:  1234567899</p>
+        <p class="field name">Name:  {{store.userDetails[0].first_name}}  {{store.userDetails[0].last_name}}</p>
+        <p class="field email">Email:  {{store.userDetails[0].email}}</p>
+        <p class="field address">Address:  {{store.userDetails[0].address}}</p>
+        <p class="field country">Country:  {{store.userDetails[0].country}}</p>
+        <p class="field state">State: {{store.userDetails[0].state}}</p>
+        <p class="field sex">Sex: {{store.userDetails[0].sex}}</p>
+        <p class="field accountNo">Account No:  {{store.userDetails[0].account_no}}</p>
       </div>
       <div class="cards">
         <h2 class="cardHead">Card Details</h2>
         <div class="card-div">
           <select v-model="tarjeta" name="card" id="details">
             <option disabled value="">Choose Your Card</option>
-            <option :key="card.id" v-for="card in cards">{{card}}</option>
+            <option :key="card.id" v-for="card in cards">{{card.card_no}}</option>
           </select>
         </div>
         {{tarjeta}}
@@ -68,16 +68,25 @@ export default {
   components: {
     Card
   },
+  computed: {
+    themeColors () {
+      return this.$store.state.settings[0]
+    },
+    cards () {
+      return this.$store.state.accounts
+    },
+    store () {
+      return this.$store.state
+    }
+  },
   data () {
     return {
-      themeColors: this.$store.state.settings[0],
       accountDetails: true,
       createCard: false,
-      cards: ['8964 xxxx xxxx 9012',  '3512 xxxx xxxx 9012', '3567 xxxx xxxx 9012'],
       tarjeta: ''
     }
   },
-   created () {
+   async created () {
     if(this.$cookies.isKey('user') == true && (this.$store.state.userDetails.length == 0)) {
       const user = this.$cookies.get('user').json()
       const data = { firstName: user.firstName, account: user.account_no }
@@ -89,8 +98,9 @@ export default {
           "Content-Type": "application/json"
         }
       }
-      const response = fetch(url, options).then(res => res.json()).then(res => console.log(res)).catch(err => console.log(err))
-      if(!response.err) {
+      const response = await fetch(url, options)
+      const json = await response.json()
+      if(json.err == null) {
         const store = this.$store.state
         store.userDetails = response.userDetails
         store.cards = response.cards
@@ -121,6 +131,7 @@ export default {
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
+    background-color: v-bind(themeColors.background_color_5);
   }
 
   h1,
@@ -134,6 +145,13 @@ export default {
   
   h2 {
     font-size: 35px;
+  }
+
+  h1,
+  h2,
+  h3,
+  p {
+    color: v-bind(themeColors.color_3);
   }
 
   #new {

@@ -3,8 +3,9 @@
   <div class="overview hide">
     <div class="bio">
       <p @click="closeMenu" id="close">&#10005;</p>
-      <img id="image" src="../assets/man.png" alt="Profile Pic">
-      <h3 class="greet">Hello <span class="name">Solly</span></h3>
+      <img v-if="sex == 'Male'" id="image" src="../assets/man.png" alt="Profile Pic">
+      <img v-else src="../assets/woman.png" alt="Profile Pic" id="image">
+      <h3 class="greet">Hello <span class="name">{{userDetails.first_name}}</span></h3>
       <p class="intro">Welcome back to Dart</p>
     </div>
     <div class="menus">
@@ -23,13 +24,20 @@
 <script>
 export default {
   name: 'OverView',
-  created () {
-    
+  computed: {
+    themeColors () {
+      return this.$store.state.settings[0]
+    },
+    userDetails () {
+      return this.$store.state.userDetails[0]
+    },
+    store () {
+      return this.$store.state
+    }
   },
   data () {
     return {
-      themeColors: this.$store.state.settings[0],
-      image: false
+      sex: this.$store.state.userDetails[0].sex
     }
   },
   methods: {
@@ -101,7 +109,8 @@ export default {
   }
 
   h3,
-  span {
+  span,
+  p {
     color: v-bind(themeColors.color_3);
   }
 
