@@ -2,8 +2,8 @@
   <div class="contact-page">
     <form id="form">
       <h2 class="head">Send Your Suggestions to Us. We appreciate Your Feedback.</h2>
-      <input type="email" name="email" id="mail" value="Enter Your Email" required>
-      <input type="text" name="comment" id="comment" minlength="2" maxlength="100" value="Give your Feedback" required>
+      <input v-model="mail" type="email" name="email" id="mail" placeholder="Enter Your Email" required>
+      <input v-model="feedback" type="text" name="comment" id="comment" minlength="2" maxlength="100" placeholder="Give your Feedback" required>
       <input class="submit" type="submit" value="Submit">
     </form>
   </div>
@@ -12,9 +12,15 @@
 <script>
 export default {
   name: 'ContactUs',
+  computed: {
+    themeColor () {  
+     return this.$store.state.settings[0]
+    }
+  },
   data () {
     return {
-      themeColor: this.$store.state.settings[0]
+      mail: '',
+      feedback: ''
     }
   }
 }
@@ -24,6 +30,7 @@ export default {
   .contact-page {
     height: 80%;
     width: 80%;
+    background-color: v-bind(themeColor.background_color_5);
   }
 
   #form {
@@ -51,6 +58,11 @@ export default {
     border-radius: 10px;
     border: none;
     background-color: v-bind(themeColor.background_color_3);
+  }
+
+  .head,
+  input {
+    color: v-bind(themeColor.color_3);
   }
 
   #comment {

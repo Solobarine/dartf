@@ -11,7 +11,7 @@
     </div>
     <div id="icons">
       <router-link to="/dashboard/messages"><i class="fa-solid fa-bell" /></router-link>
-      <router-link to="/dashboard/account"><i class="fa-solid fa-user-tie" /><p id="user">  {{firstName}}</p></router-link>
+      <router-link class="user" to="/dashboard/account"><i class="fa-solid fa-user-tie" /><p id="user">{{firstName}}</p></router-link>
     </div>
   </header>
 </template>
@@ -19,10 +19,17 @@
 <script>
   export default {
     name: 'HeaderView',
+    computed: {
+      themeColors () {
+        return this.$store.state.settings[0]
+      },
+      firstName () {
+        return this.$store.state.loggedIn && this.$store.state.userDetails[0].first_name
+      }
+    },
     data () {
       return {
         theme: 'light',
-        themeColors: this.$store.state.settings[0],
         col: "#ff0"
       }
     }
@@ -32,7 +39,7 @@
 <style scoped>
   header {
     align-content: center;
-    padding: 10px;
+    padding: 5px;
     background: v-bind(themeColors.background_color_1);
   }
 
@@ -51,8 +58,11 @@
     display: none;
   }
 
+  h3,
+  #company i,
+  #icons i,
   p {
-    color: #000;
+    color: v-bind(themeColors.color_3);
   }
 
   @media only screen and (min-width: 768px) {
@@ -78,7 +88,7 @@
     display: flex;
     text-align: center;
     justify-content: space-between;
-    padding: 35px;
+    padding: 23px;
     background-image: linear-gradient(to right, v-bind(themeColors.background_color_1), #fff 25%, v-bind(themeColors.background_color_2));
   }
 
@@ -96,7 +106,7 @@
   }
 
   #icons {
-    width: 5%;
+    width: 10%;
     display: flex;
     justify-content: space-evenly;
     margin-top: -8px;
@@ -105,6 +115,22 @@
   #icons > a {
     font-size: 20px;
     text-decoration: none;
+  }
+
+  .navLinks > a p,
+  .discover {
+    color: #000
+  }
+
+  .user {
+    display: flex;
+    text-align: center;
+    width: 40%;
+    justify-content: space-between;
+  }
+
+  .user i {
+    margin-top: 5px;
   }
 }
 </style>

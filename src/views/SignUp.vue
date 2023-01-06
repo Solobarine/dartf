@@ -10,6 +10,7 @@
       <input type="password" v-model="confirmPassword" name="confirmPassword" id="c-password" placeholder="Confirm Password" required>
       <label for="date">Date of Birth</label><input type="date" name="date" id="date" v-model="date_of_birth" required>
       <input type="email" v-model="email" name="email" placeholder="Email" required>
+      <span class="accountExist">{{signUpError}}</span>
       <input type="text" v-model="phoneNo" name="phoneNo" placeholder="Phone Number" required>
       <select name="countries" v-model="userCountry" required>
         <option disabled value="">Country of Origin</option>
@@ -18,7 +19,6 @@
           <p value="" class="countryFlag">{{country.flag}}</p>
         </option>
       </select>
-      {{userCountry}}
       <input type="text" v-model="state" name="state" id="state" placeholder="State" minlength="2" maxlength="40" required>
       <input type="text" v-model="city" name="city" id="city" placeholder="City" minlength="2" maxlength="40" required>
       <input type="text" v-model="address" name="address" id="address" placeholder="Address" minlength="8" maxlength="60" required>
@@ -40,6 +40,14 @@ import { countries } from 'country-list-json'
 
 export default {
   name: 'SignUp',
+  computed: {
+    themeColors () {
+      return this.$store.state.settings[0]
+    },
+    signUpError () {
+      return this.$store.state.signInError
+    }
+  },
   data () {
     return {
       firstName: '',
@@ -55,21 +63,20 @@ export default {
       address: '',
       gender: '',
       countries,
-      error: '',
-      themeColors: this.$store.state.settings[0]
+      error: ''
     }
   },
   methods: {
     createAccount() {
       console.log('Clicking')
       const data = {
-        firstName: this.firstName,
-        lastName: this.lastName,
+        'first_name': this.firstName,
+        'last_name': this.lastName,
         email: this.email,
         password: this.password,
         confirmPassword: this.confirmPassword,
-        phoneNo: this.phoneNo,
-        date_of_birth: this.date_of_birth,
+        'phone_no': this.phoneNo,
+        'date_of_birth': this.date_of_birth,
         country: this.userCountry.slice(0, -4),
         state: this.state,
         city: this.city,
@@ -77,10 +84,10 @@ export default {
         gender: this.gender
       }
       console.log(data) 
-      if (this.password === this.confirmPassword) {
+      if (this.password === this.confirmPassword && this.firstName !== '' && this.lastName !== '' && this.email !== '' && this.state !== '' && this.address !== '' && this.userCountry !== '' && this.date_of_birth !== '' && this.city !== '') {
         this.$store.dispatch('createAnAccount', data)
       } else {
-        this.error = 'Password does not match.'
+        this.error = 'Invalid Credentials.'
       }
     }
   }
@@ -99,6 +106,7 @@ export default {
     color: #00f;
     height: 760px;
     overflow-y: scroll;
+    background-color: v-bind(themeColors.background_color_5);
   }
 
   .fields {
@@ -136,9 +144,6 @@ export default {
   }
 
   @media only screen and (max-width: 768px) {
-    .sign-up {
-    }
-
     #sign {
       margin-bottom: 10px;
     }

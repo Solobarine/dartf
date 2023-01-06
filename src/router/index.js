@@ -9,27 +9,36 @@ import Settings from '../views/SettingsPage.vue';
 import SignUp from '../views/SignUp.vue';
 import TransferView from '../views/TransferView.vue';
 import Welcome from '../views/Welcome.vue';
+import { store } from '../store';
 
 const routes = [
   {
     name: 'Account',
     path: '/dashboard/account',
-    component: AccountView
+    component: AccountView,
+    meta: { loggedIn: true }
   },
   {
     name: 'ContactUs',
     path: '/dashboard/contact-us',
-    component: ContactUsPage
+    component: ContactUsPage,
+    meta: { loggedIn: true }
   },
   {
     name: 'DashBoard',
     path: '/dashboard',
-    component: DashBoard
+    component: DashBoard,
+    meta: {
+      loggedIn: true
+    }
   },
   {
     name: 'Deposit',
     path: '/dashboard/deposit',
-    component: DepositView
+    component: DepositView,
+    meta: {
+      loggedIn: true
+    }
   },
   {
     name: 'Login',
@@ -39,12 +48,14 @@ const routes = [
   {
     name: 'Message',
     path: '/dashboard/messages',
-    component: MessageView
+    component: MessageView,
+    meta: { loggedIn: true }
   },
   {
     name: 'Settings',
     path: '/dashboard/settings',
-    component: Settings
+    component: Settings,
+    meta: { loggedIn: true }
   },
   {
     name: 'SignUp',
@@ -54,12 +65,16 @@ const routes = [
   {
     name: 'Transfer',
     path: '/dashboard/transfer',
-    component: TransferView
+    component: TransferView,
+    meta: { loggedIn: true }
   },
   {
     name: 'Welcome',
     path: '/',
-    component: Welcome
+    component: Welcome,
+    meta: {
+      loggedIn: false
+    }
   }
 ];
 
@@ -67,5 +82,17 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 });
+
+router.beforeEach((_to, _from, next) => {
+  if (!_to.meta.loggedIn) {
+    next()
+  } else {
+    if (store.state.loggedIn) {
+      next()
+    } else {
+      next('/login')
+    }
+  }
+}) 
 
 export default router;

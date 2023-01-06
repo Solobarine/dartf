@@ -7,8 +7,9 @@
     </ul>
     <div class="categories">
       <div v-if="showThemeSetting" class="chooseTheme">
-        <h2 class="theme">Theme</h2>
+        <h2 class="theme">Select Your Prefered Theme</h2>
         <select v-model="theme" name="theme" id="themeOptions">
+          <option disabled value="">Choose Your Theme</option>
           <option value="light">Light</option>
           <option value="dark">Dark</option>
         </select>
@@ -33,6 +34,11 @@
 <script>
   export default {
     name: 'SettingsPage',
+    computed: {
+      themeColors () {
+        return this.$store.state.settings[0]
+      }
+    },
     data () {
       return {
         showThemeSetting: true,
@@ -41,8 +47,7 @@
         count: 0,
         theme: null,
         dark: false,
-        light: true,
-        themeColors: this.$store.state.settings[0]
+        light: true
     }
   },
   methods: {
@@ -76,6 +81,15 @@
     display: flex;
     flex-direction: column;
     padding-top: 30px;
+    background-color: v-bind(themeColors.background_color_5);
+  }
+
+  li,
+  h2,
+  h3,
+  button,
+  .submit {
+    color: v-bind(themeColors.color_3);
   }
 
   ul {

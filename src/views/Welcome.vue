@@ -12,10 +12,14 @@
 <script>
 export default {
   name: 'WelcomePage',
+  computed: {
+    themeColors () {
+      return this.$store.state.settings[0]
+    }
+  },
   data () {
     return {
       theme: 'light',
-      themeColors: this.$store.state.settings[0]
     }
   } 
 }
@@ -26,7 +30,7 @@ export default {
     width: 100%;
     background-image: linear-gradient(90deg, v-bind(themeColors.background_color_1), v-bind(themeColors.background_color_2));
     height: 83vh;
-    margin-top: -25px;
+    background-color: v-bind(themeColors.background_color_1);
   }
 
   .title {
@@ -38,6 +42,16 @@ export default {
   .title,
   .subtitle {
     text-align: center;
+  }
+
+  button,
+  h1,
+  h3 {
+    color: v-bind(themeColors.color_3); 
+  }
+
+  ::placeholder {
+    color: #000;
   }
 
   .buttons {
@@ -54,8 +68,8 @@ export default {
     padding: 5px;
     width: 50px;
     border-radius: 10px;
-    border: 2px solid v-bind(themeColors.background_color_3);
-    background-color: v-bind(themeColors.background_color_1);
+    border: 2px solid v-bind(themeColors.background_color_1);
+    background-color: v-bind(themeColors.background_color_4);
   }
 
   @media only screen and (min-width: 768px) {
