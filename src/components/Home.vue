@@ -5,14 +5,14 @@
       <div class="balanceInfo">
         <i class="fa-solid fa-money-bills"></i>
         <p class="b-title">Balance</p>
-        <p class="balance">$20000</p>
+        <p class="balance">{{store.userDetails[0].balance}}</p>
       </div>
       <div class="accountInfo">
         <i class="fa-solid fa-user"></i>
         <p class="name">Full Name</p>
-        <p>Solomon Barine</p>
+        <p>{{store.userDetails[0].first_name}}   {{store.userDetails[0].last_name}}</p>
         <p class="accountNo">Account No</p>
-        <p>1234567890</p>
+        <p>{{store.userDetails[0].account_no}}</p>
       </div>
       <div class="income">
         <i class="fa-solid fa-money-bill"></i>
@@ -116,6 +116,14 @@ export default {
   components: {
     Card
   },
+  computed: {
+    store () {  
+     return this.$store.state
+    },
+    themeColors () {
+      return this.$store.state.settings[0]
+    }
+  },
    created () {
     if(this.$cookies.isKey('user') == true && this.$store.state.userDetails.length == 0) {
       const user = this.$cookies.get('user').json()
@@ -147,8 +155,7 @@ export default {
       lastName: this.$store.state.userDetails.lastName,
       accountNo: this.$store.state.userDetails.account_no,
       deposits: this.$store.state.deposits,
-      transfers: this.$store.state.transfers*/
-      themeColors: this.$store.state.settings[0]
+transfers: this.$store.state.transfers*/
     }
    }
 }
@@ -162,6 +169,11 @@ export default {
     height: 80%;
     padding: 20px;
     overflow-y: scroll;
+    background-color: v-bind(themeColors.background_color_5);
+  }
+
+  p {
+    color: v-bind(themeColors.color_3);
   }
 
   #accountSummary {
@@ -206,6 +218,8 @@ export default {
     background: v-bind(themeColors.background_color_3);
   }
 
+  h1,
+  h2,
   .deposits h3,
   .transfers h3 {
     text-align: center;

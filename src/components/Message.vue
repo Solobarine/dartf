@@ -83,10 +83,12 @@ export default {
       }
     }
   },
-  data () {
-    return {
-      messages: this.$store.state.messages,
-      themeColors: this.$store.state.settings[0]
+  computed: {
+    messages () {
+      return this.$store.state.messages
+    },
+    themeColors () {
+      return this.$store.state.settings[0]
     }
   }
 }
@@ -99,6 +101,12 @@ export default {
     flex-direction: column;
     height: 80%;
     overflow-y: scroll;
+    background-color: v-bind(themeColors.background_color_5);
+  }
+
+  h2,
+  p {
+    color: v-bind(themeColors.color_3);
   }
 
   .deposit {

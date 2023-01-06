@@ -11,25 +11,35 @@
   </div>
 </template>
 
-<script> 
-
+<script>
 export default {
   name: "LoginPage",
+  computed: {
+    error () {
+      return this.$store.state.loginError
+    },
+    themeColors () {
+      return this.$store.state.settings[0]
+    }
+  },
   data () {
     return {
       email: '',
-      password: '',
-      error: '',
-      themeColors: this.$store.state.settings[0]
+      password: ''
     }
   },
   methods: {
     login () {
       const inputs = { email: this.email, password: this.password }
-      this.$store.dispatch("populateStore", inputs)
+      this.$store.dispatch("populateStore", inputs).then(() => {
+        if (this.$store.state.loggedIn) {
+          this.$router.push({name: 'DashBoard'})
+        }
+      })
     },
     checkStore () {
-      console.log(this.$store)
+      this.$store.state.loggedIn = true
+      this.$router.push({name: 'DashBoard'})
     }
   }
 }
@@ -39,6 +49,16 @@ export default {
   .container {
     height: 760px;
     padding: 30px;
+    background-color: v-bind(themeColors.background_color_5);
+  }
+
+  #errorMessage {
+    color: red;
+  }
+
+  h2,
+  #signup {
+    color: v-bind(themeColors.color_3);
   }
 
   .login {
@@ -68,7 +88,7 @@ export default {
   }
 
   ::placeholder {
-    color: #fff;
+    color: #000;
   }
 
   .submit {

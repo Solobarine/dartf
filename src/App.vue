@@ -34,8 +34,8 @@ export default {
     font-family: Poppins, sans-serif;
   }
 
-  :::placeholder {
-    color: v-bind(themeColors.color_3);;
+  :placeholder {
+    color: v-bind(themeColors.color_3);
   }
 
   a, .active {

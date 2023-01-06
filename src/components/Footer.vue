@@ -15,9 +15,9 @@
 <script>
 export default {
   name: 'FooterView',
-  data () {
-    return {
-      themeColors: this.$store.state.settings[0]
+  computed: {
+    themeColors () {
+      return this.$store.state.settings[0]
     }
   }
 }
@@ -51,6 +51,7 @@ export default {
     text-align: center;
     font-size: 16px;
     margin-top: 25px;
+    color: v-bind(themeColors.color_1);
   }
 
   @media only screen and (max-width: 768px) {
