@@ -10,7 +10,7 @@
     <div class="info">
       <p class="name">Solly</p>
       <p class="date">12/25</p>
-      <p class="accno">3417 xxx xxxx 5816 </p>
+      <p class="accno">33333xxxxxxxxxxx</p>
       <i class="fa-brands fa-cc-visa"></i>
     </div>
   </div>
@@ -23,7 +23,7 @@ export default {
     return {
       themeColors: this.$store.state.settings[0]
     }
-  }
+  },
 }
 </script>
 

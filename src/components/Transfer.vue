@@ -4,18 +4,20 @@
     <form class="form">
       <select v-model="card" name="card" id="cards">
         <option disabled value="">Choose Your Card</option>
-        <option v-bind:key="card" v-for="card in cards">{{card}}</option>
+        <option v-bind:key="card" v-for="card in cards">{{card.card_no}}</option>
       </select>
       <input v-model="amount" type="number" name="amount" id="amount" placeholder="Enter Amount">
-      <input v-model="receiverAccNo" type="text" name="receiverAccNo" id="receiverAccNo" placeholder="Receiver Account Number">
+      <input @keypress="checkAccountNo" v-model="receiverAccNo" type="text" name="receiverAccNo" id="receiverAccNo" placeholder="Receiver Account Number">
       <div class="receiverName">
         <p class="info">Always Wait until you can see the recipient's name before clicking the Submit button.</p>
+        <p class="tramsferError">{{errorMessage}}</p>
         <p class="name r-firstName">{{receiverFirstName}}</p>
         <p class="name r-lastName">{{receiverLastName}}</p>
       </div>
+      <p>{{status}}</p>
       <input v-model="pin" type="number" name="pin" id="pin" placeholder="Enter Your Pin">
       <input v-model="description" type="text" name="description" id="description" placeholder="Description">
-      <input class="submit" type="submit" value="Submit">
+      <input @click="makeTransfer" class="submit" type="submit" value="Submit">
     </form>
   </div>
 </template>
@@ -38,6 +40,12 @@ export default {
     },
     receiverLastName () {
       return this.$store.state.transferReceipient.receiverLastName
+    },
+    errorMessage () {
+      return this.$store.state.transferReceipient.errorMessage
+    },
+    status () {
+      return this.$store.state.transferStatus
     }
   },
   created () {
@@ -52,16 +60,15 @@ export default {
           "Content-Type": "application/json"
         }
       }
-      const response = fetch(url, options).then(res => res.json()).then(res => console.log(res)).catch(err => console.log(err))
-      if(!response.err) {
+      const response = fetch(url, options)
+      const json = response.json()
         const store = this.$store.state
-        store.userDetails = response.userDetails
-        store.cards = response.cards
-        store.deposits = response.deposits
-        store.transfers = response.transfers
-        store.messages = response.messages
-        store.settings = response.settings
-      }
+        store.userDetails = json.res.userDetails
+        store.cards = json.res.cards
+        store.deposits = json.res.deposits
+        store.transfers = json.res.transfers
+        store.messages = json.res.messages
+        store.settings = json.res.settings
     }
   },
   data () {
@@ -78,42 +85,34 @@ export default {
   },
   methods: {
     checkAccountNo () {
-      
+      if (this.receiverAccNo.length == 10) {
+        const data = {sender_account_no: this.$store.state.userDetails[0].account_no, account_no: this.receiverAccNo}
+        this.$store.dispatch('getReceiverName', data)
+      }
     },
-    makeTransfer () {
+    makeTransfer (e) {
+      console.log('here')
+      e.preventDefault()
       if (this.receiverFirstName != '' && this.receiverLastName != '') {
-        const url = 'http://localhost:8000/dashboard/transfer'
         const data = {
-          sender_first_name: this.$store.state.userDetails.firstName,
-          sender_last_name: this.$store.state.userDetails.lastName,
-          sender_account_no: this.$store.state.userDetails.account_no,
-          amount: this.amount,
-          card: this.card,
-          pin: this.pin,
-          receiver_first_name: this.receiverFirstName,
-          receiver_last_name: this.receiverLastName,
-          receiver_account_no: this.receiverAccNo,
-          description: this.description
+          'sender_first_name': this.$store.state.userDetails[0].first_name,
+          'sender_last_name': this.$store.state.userDetails[0].last_name,
+          'sender_account_no': this.$store.state.userDetails[0].account_no,
+          'amount': this.amount,
+          'card_no': this.card,
+          'pin': this.pin,
+          'receiver_first_name': this.receiverFirstName,
+          'receiver_last_name': this.receiverLastName,
+          'receiver_account_no': this.receiverAccNo,
+          'description': this.description
         }
-        const options = {
-          "method": "POST",
-          "body": JSON.stringify(data),
-          "headers": {
-            "Content-Type": "application/json"
-          }
+
+        this.$store.dispatch('makeTransfer', data)
+      } else {
+        return this.transferError = 'Invalid Transfer'
         }
-        const response = fetch (url, options)
-        const json = response.json()
-        if (json.res == 'Insuficient Funds') {
-          return this.transferRequest = 'Your Transfer Request has been accepted'
-        } else {
-          return this.transferRequest = 'Transaction Failed'
-        } 
-    } else {
-      return this.transferError = 'Invalid Transfer'
+      }
     }
-    }
-  }
 }
 </script>
 
