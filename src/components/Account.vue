@@ -17,12 +17,11 @@
         <div class="card-div">
           <select v-model="tarjeta" name="card" id="details">
             <option disabled value="">Choose Your Card</option>
-            <option :key="card.id" v-for="card in cards">{{card.card_no}}</option>
+            <option v-bind:key="card" v-for="card in cards">{{card.card_no}}</option>
           </select>
         </div>
-        {{tarjeta}}
         <div class="card-graphic">
-          <Card />
+          <Card :tarjeta="tarjeta" />
         </div>
         <button @click="toggleCreateCard" type="submit" id="new">Create New</button>
       </div>
@@ -31,11 +30,13 @@
       <h2>Create A Card</h2>
       <form>
         <p @click="viewAccountInfo" class="close">Close</p>
-        <input type="text" placeholder="Enter Your First Name">
-        <input type="text" placeholder="Enter Your Last Name">
-        <input type="number" placeholder="Enter Your Account Number">
-        <input type="text" placeholder="Enter Your Account Password">
-        <input type="submit" id="submit" value="Submit">
+        <p>{{store.createCardMEssage}}</p>
+        <input v-model="first_name" type="text" placeholder="Enter Your First Name">
+        <input v-model="last_name" type="text" placeholder="Enter Your Last Name">
+        <input v-model="account_no" type="number" placeholder="Enter Your Account Number">
+        <input v-model="password" type="text" placeholder="Enter Your Account Password">
+        <input v-model="pin" type="number" placeholder="Enter Your Desired Pin">
+        <input @click="createDebitCard" type="submit" id="submit" value="Submit">
       </form>
     </div>
     <h2 v-if="accountDetails">Customer Statistics</h2>
@@ -73,7 +74,7 @@ export default {
       return this.$store.state.settings[0]
     },
     cards () {
-      return this.$store.state.accounts
+      return this.$store.state.cards
     },
     store () {
       return this.$store.state
@@ -83,7 +84,12 @@ export default {
     return {
       accountDetails: true,
       createCard: false,
-      tarjeta: ''
+      tarjeta: '',
+      first_name: '',
+      last_name: '',
+      account_no: '',
+      pin: '',
+      password: ''
     }
   },
    async created () {
@@ -119,7 +125,15 @@ export default {
       viewAccountInfo () {
         this.accountDetails = true
         this.createCard = false
-     }
+      },
+      createDebitCard (e) {
+        e.preventDefault()
+        const data = { 'first_name': this.first_name, 'last_name': this.last_name, accountNo: this.account_no, password: this.password, pin: this.pin }
+        this.$store.dispatch('createCard', data)
+      },
+      seestore () {
+        console.log(this.$store.state)
+      }
    }
 }
 </script>

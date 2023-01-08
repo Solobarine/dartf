@@ -49,8 +49,10 @@ export default {
      }
   },
   methods: {
-    makeDeposit () {
-      const depositRequest = {amount: this.amount, account_no: this.accountNo}
+    makeDeposit (e) {
+      e.preventDefault()
+      const depositRequest = {amount: this.amount, accountNo: this.accountNo}
+      console.log(depositRequest)
       this.$store.dispatch('makeDeposit', depositRequest)  
     } 
   }

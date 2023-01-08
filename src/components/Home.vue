@@ -5,7 +5,7 @@
       <div class="balanceInfo">
         <i class="fa-solid fa-money-bills"></i>
         <p class="b-title">Balance</p>
-        <p class="balance">{{store.userDetails[0].balance}}</p>
+        <p class="balance">${{store.userDetails[0].balance}}</p>
       </div>
       <div class="accountInfo">
         <i class="fa-solid fa-user"></i>
@@ -27,40 +27,23 @@
     </div>
     <h2 class="recent">Recent</h2>
     <div class="cashFlow">
-      <div class="deposits">
+      <div class="deposits-record">
         <h3>Recent Deposits</h3>
-        <div class="user">
+        <div v-if="isDeposits" class="depo">
+        <div  :key="deposit" v-for="deposit in depositRecords" class="deposits">
+          <div class="user">
           <i class="fa-solid fa-circle-user dep"></i>
           <div class="t-div">
-            <p class="t-name">Solly</p>
-            <p class="time">28-11-2022</p>
+            <p class="t-name">{{store.userDetails[0].first_name}}</p>
+            <p class="time">{{deposit.created_at.substring(0, 10)}}</p>
           </div>
-          <p class="dinero">$450</p>
+          <p class="dinero">${{deposit.amount}}</p>
         </div>
-         <div class="user">
-          <i class="fa-solid fa-circle-user dep"></i>
-          <div class="t-div">
-            <p class="t-name">Solly</p>
-            <p class="time">28-11-2022</p>
-          </div>
-          <p class="dinero">$450</p>
-        </div>
-        <div class="user">
-          <i class="fa-solid fa-circle-user dep"></i>
-          <div class="t-div">
-            <p class="t-name">Solly</p>
-            <p class="time">28-11-2022</p>
-          </div>
-          <p class="dinero">$450</p>
-        </div>
-           <div class="user">
-          <i class="fa-solid fa-circle-user dep"></i>
-          <div>
-            <p class="t-name">Solly</p>
-            <p class="time">28-11-2022</p>
-          </div>
-          <p class="dinero">$450</p>
-        </div>
+      </div>
+    </div>
+      <div v-else class="depo">
+        <h3 id="not">No Current Deposits.</h3>
+      </div>
       </div>
       <div class="transfers">
         <h3>Recent Transfers</h3>
@@ -72,33 +55,6 @@
           <p>Fabio L.</p>
           <p>07-09-2022</p>
           <p class="amount">$25</p>
-        </div>
-        <div class="send">
-          <i class="fa-solid fa-circle-user"></i>
-          <p>Solly</p>
-          <p>to</p>
-          <i class="fa-solid fa-circle-user"></i>
-          <p>Daniel</p>
-          <p>07-09-2022</p>
-          <p class="amount">$82</p>
-        </div>
-        <div class="send">
-          <i class="fa-solid fa-circle-user"></i>
-          <p>Solly</p>
-          <p>to</p>
-          <i class="fa-solid fa-circle-user"></i>
-          <p>Papadoupolos</p>
-          <p>07-09-2022</p>
-          <p class="amount">$127</p>
-        </div>
-        <div class="send">
-          <i class="fa-solid fa-circle-user"></i>
-          <p>Solly</p>
-          <p>to</p>
-          <i class="fa-solid fa-circle-user"></i>
-          <p>Fabio L.</p>
-          <p>07-09-2022</p>
-          <p class="amount">$900</p>
         </div>
       </div>
       <div class="cards">
@@ -122,6 +78,16 @@ export default {
     },
     themeColors () {
       return this.$store.state.settings[0]
+    },
+    isDeposits () {
+      if (this.$store.state.deposits.length > 0) {
+        return true
+      } else {
+        return false
+      }
+    },
+    depositRecords () {
+      return this.$store.state.deposits
     }
   },
    created () {
@@ -147,17 +113,12 @@ export default {
         store.settings = response.settings
       }
     }
-   },
-   data () {
-    return {
-      /*balance: this.$store.state.userDetails.balance,
-      firstName: this.$store.state.userDetails.firstName,
-      lastName: this.$store.state.userDetails.lastName,
-      accountNo: this.$store.state.userDetails.account_no,
-      deposits: this.$store.state.deposits,
-transfers: this.$store.state.transfers*/
+  },
+  method: {
+    date: (input) => {
+      return input.splice(0, 10)
     }
-   }
+  }
 }
 </script>
 
@@ -279,6 +240,7 @@ transfers: this.$store.state.transfers*/
 
   .deposits i {
     text-align: center;
+    margin-top: 12px;
   }
 
   .deposits > div >div {
@@ -286,12 +248,17 @@ transfers: this.$store.state.transfers*/
     flex-direction: column;
   }
 
+  #not {
+    margin-top: 125px;
+    color: red;
+  }
+
   .transfers {
     width: 46%;
   }
 
   .deposits {
-    width: 25%;
+    width: 100%;
   }
 
   .cards {
