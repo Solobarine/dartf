@@ -11,7 +11,6 @@
         <p class="field state">State: {{store.userDetails[0].state}}</p>
         <p class="field sex">Sex: {{store.userDetails[0].sex}}</p>
         <p class="field accountNo">Account No:  {{store.userDetails[0].account_no}}</p>
-        {{tarjeta}}
       </div>
       <div class="cards">
         <h2 class="cardHead">Card Details</h2>
@@ -20,10 +19,9 @@
             <option disabled value="">Choose Your Card</option>
             <option v-bind:key="card" v-for="card in cards">{{card.card_no}}</option>
           </select>
-          <button @click="seestore">store</button>
         </div>
         <div class="card-graphic">
-          <Card tarjeta="tarjeta" />
+          <Card :tarjeta="tarjeta" />
         </div>
         <button @click="toggleCreateCard" type="submit" id="new">Create New</button>
       </div>

@@ -8,9 +8,9 @@
       <img src="../assets/chip.png" alt="Micro Chip">
     </section>
     <div class="info">
-      <p class="name">Solly</p>
+      <p class="name">{{name}}</p>
       <p class="date">12/25</p>
-      <p class="accno">33333xxxxxxxxxxx</p>
+      <p class="accno">{{tarjeta}}</p>
       <i class="fa-brands fa-cc-visa"></i>
     </div>
   </div>
@@ -21,9 +21,11 @@ export default {
   name: 'UserCard',
   data () {
     return {
-      themeColors: this.$store.state.settings[0]
+      themeColors: this.$store.state.settings[0],
+      name: this.$store.state.userDetails[0].first_name
     }
   },
+  props: ['tarjeta']
 }
 </script>
 

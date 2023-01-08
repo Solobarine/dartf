@@ -21,10 +21,13 @@ export const store = createStore({
       loggedIn: false,
       loginError: '',
       signUpError: '',
+      createCardMEssage: '',
       transferReceipient: {
         receiverFirstName: '',
-        receiverLastName: ''
-      }
+        receiverLastName: '',
+        errorMessage: ''
+      },
+      transferStatus: ''
     }
   },
   mutations: {
@@ -35,7 +38,7 @@ export const store = createStore({
       } else {
         console.log(state)
         state.userDetails[0] = payload.userDetails
-        state.cards = payload.cards
+        state.cards = payload.accounts
         state.deposits = payload.deposits
         state.transfers = payload.transfers
         state.messages = payload.messages
@@ -53,7 +56,7 @@ export const store = createStore({
           console.log(state.loginError)
       } else {
         state.userDetails = payload.res.userDetails
-        state.cards = payload.res.cards
+        state.cards = payload.res.accounts
         state.deposits = payload.res.deposits
         state.transfers = payload.res.transfers
         state.messages = payload.res.messages
@@ -65,6 +68,15 @@ export const store = createStore({
         state.loggedIn = true
       }
     },
+    createCard: async (state, payload) => {
+      console.log(payload)
+      if (payload.Cards) {
+        state.createCardMEssage = 'Card Created Successfully'
+        state.cards.push(payload.Cards)
+      } else {
+        state.createCardMEssage = 'Sorry, Unable to create a Card'
+      }
+    },
     deposit: async (state, payload) => {
       if (payload.status == 'Invalid Deposit Request' ) {
         state.deposits.push(payload)
@@ -73,6 +85,19 @@ export const store = createStore({
         return 'Sorry, your transaction has failed'
       }
       
+    },
+    receiver: async (state, payload) => {
+      if (payload.res == null) {
+        return state.transferReceipient.errorMessage = 'User Not Found'
+      } else if (payload.res !== 'No User Found') {
+        state.transferReceipient.receiverFirstName = payload.res.first_name
+        state.transferReceipient.receiverLastName = payload.res.last_name
+      } else {
+        state.transferReceipient.errorMessage = payload.res
+      }
+    },
+    transfer: (state, payload) => {
+      state.transferStatus = payload.response
     },
     toggleTheme: (state, payload) => {
       let colors = []
@@ -137,6 +162,20 @@ export const store = createStore({
 
       context.commit('createUser', resp)
     },
+    createCard: async (context, payload) => {
+      const url = 'https://pure-harbor-30545.herokuapp.com/account/create'
+      const options = {
+        "method": "POST",
+        "body": JSON.stringify(payload),
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+      const response = await fetch(url, options)
+      const data = await response.text()
+
+      context.commit('createCard', data)
+    },
     makeDeposit: async (context, payload) => {
       const url = 'https://pure-harbor-30545.herokuapp.com/account/deposit/create'
       const options = {
@@ -147,12 +186,40 @@ export const store = createStore({
         }
       }
       const response = await fetch(url, options)
-      const data = response.json()
+      const data = await response.text()
+      console.log(data)
 
       context.commit('deposit', data)
     },
-    makeTransfer: (context, payload) => {
-      context.commit('transfer', payload)
+    getReceiverName: async (context, payload) => {
+      const url = 'https://pure-harbor-30545.herokuapp.com/account/transfer/checkaccountno'
+      const options = {
+        "method": "POST",
+        "body": JSON.stringify(payload),
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+      const response = await fetch(url, options)
+      const data = await response.text()
+      console.log(data)
+
+      context.commit('receiver', data)
+    },
+    makeTransfer: async (context, payload) => {
+      const url = 'https://pure-harbor-30545.herokuapp.com/account/transfer'
+      const options = {
+        "method": "POST",
+        "body": JSON.stringify(payload),
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+      const response = await fetch (url, options)
+      const json = await response.text()
+      console.log(json)
+
+      context.commit('transfer', json)
     },
     changeTheme: (context, payload) => {
       context.commit('toggleTheme', payload)

@@ -5,6 +5,7 @@ import DashBoard from '../views/Dashboard.vue';
 import DepositView from '../views/DepositView.vue';
 import Login from '../views/Login.vue';
 import MessageView from '../views/MessageView.vue';
+import NotFound from '../views/NotFound.vue';
 import Settings from '../views/SettingsPage.vue';
 import SignUp from '../views/SignUp.vue';
 import TransferView from '../views/TransferView.vue';
@@ -75,6 +76,11 @@ const routes = [
     meta: {
       loggedIn: false
     }
+  },
+  {
+    name: NotFound,
+    path: '/:CatchAll()',
+    component: NotFound
   }
 ];
 
@@ -88,6 +94,8 @@ router.beforeEach((_to, _from, next) => {
     next()
   } else {
     if (store.state.loggedIn) {
+      next()
+    } else if (_to == '/CatchAll()') {
       next()
     } else {
       next('/login')

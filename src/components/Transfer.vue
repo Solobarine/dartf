@@ -7,10 +7,10 @@
         <option v-bind:key="card" v-for="card in cards">{{card.card_no}}</option>
       </select>
       <input v-model="amount" type="number" name="amount" id="amount" placeholder="Enter Amount">
+      <p class="transferError">{{errorMessage}}</p>
       <input @keypress="checkAccountNo" v-model="receiverAccNo" type="text" name="receiverAccNo" id="receiverAccNo" placeholder="Receiver Account Number">
       <div class="receiverName">
-        <p class="info">Always Wait until you can see the recipient's name before clicking the Submit button.</p>
-        <p class="tramsferError">{{errorMessage}}</p>
+        <p class="info">Press the Verify button to see the Name of the Account Holder<br>Always Wait until you can see the recipient's name before clicking the Submit button.</p>
         <p class="name r-firstName">{{receiverFirstName}}</p>
         <p class="name r-lastName">{{receiverLastName}}</p>
       </div>
@@ -85,8 +85,11 @@ export default {
   },
   methods: {
     checkAccountNo () {
-      if (this.receiverAccNo.length == 10) {
+      console.log('clicking')
+      if (this.receiverAccNo.length >= 5) {
+        console.log('here')
         const data = {sender_account_no: this.$store.state.userDetails[0].account_no, account_no: this.receiverAccNo}
+        console.log(data)
         this.$store.dispatch('getReceiverName', data)
       }
     },

@@ -8,7 +8,7 @@
       <input type="password" v-model="password" name="password" id="password" placeholder="Password" minlength="8" maxlength="15" required>
       <span id="passwdError">{{error}}</span>
       <input type="password" v-model="confirmPassword" name="confirmPassword" id="c-password" placeholder="Confirm Password" required>
-      <label for="date">Date of Birth</label><input type="date" name="date" id="date" v-model="date_of_birth" required>
+      <label for="date">Date of Birth<input type="date" name="date" id="date" v-model="date_of_birth" required></label>
       <input type="email" v-model="email" name="email" placeholder="Email" required>
       <span class="accountExist">{{signUpError}}</span>
       <input type="text" v-model="phoneNo" name="phoneNo" placeholder="Phone Number" required>
@@ -110,13 +110,11 @@ export default {
   }
 
   .fields {
-    width: 30%;
+    width: 70%;
     height: 95%;
     margin: auto;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 
   input,
@@ -130,11 +128,23 @@ export default {
     background-color: v-bind(themeColors.color_2);
   }
 
+  label {
+    margin-bottom: 30px;
+    width: 80%;
+    text-align: center;
+  }
+
+  label input {
+    width: 100%;
+  }
+
   #submit {
-    width: 30%;
+    width: 25%;
     padding-left: 0;
+    margin-left: 30%;
     font-size: 20px;
-    margin: 12px;
+    padding: 12px;
+    height: 50px;
     background-color: v-bind(themeColors.background_color_1);
   }
 
@@ -150,6 +160,10 @@ export default {
 
     .fields {
       width: 70%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
       margin: auto;
     }
 
@@ -158,12 +172,21 @@ export default {
       width: 80%;
       margin: auto;
       margin-bottom: 15px;
+    }
 
+    label {
+      display: flex;
+      flex-direction: column;
+      height: 60px;
+      justify-content: space-evenly;
     }
 
     #submit {
       font-size: 12px;
+      height: 40px;
       width: 65px;
+      margin: auto;
+      margin-bottom: 15px;
     }
   }
 </style>
