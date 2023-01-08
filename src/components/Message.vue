@@ -2,57 +2,13 @@
   <div class="container">
   <h2 class="deposit">Messages</h2>
   <div class="messages">
-    <div class="mesage">
-      <p class="sender" >Dart</p>
-      <p class="description" >Deposit</p>
-      <p class="date" >12-12-22</p>
+    <div :key="message" v-for="message in messages" class="mesage">
+      <p class="description" >{{message.message}}</p>
+      <br/>
+      <p class="sender">{{message.sender}}</p>
+      <p class="date" >{{message.created_at}}</p>
     </div>
-    <div class="mesage">
-      <p class="sender" >Dart</p>
-      <p class="description" >Deposit</p>
-      <p class="date" >12-12-22</p>
-    </div>
-    <div class="mesage">
-      <p class="sender" >Dart</p>
-      <p class="description" >Deposit</p>
-      <p class="date" >12-12-22</p>
-    </div>
-    <div class="mesage">
-      <p class="sender" >Dart</p>
-      <p class="description" >Deposit</p>
-      <p class="date" >12-12-22</p>
-    </div>
-    <div class="mesage">
-      <p class="sender" >Dart</p>
-      <p class="description" >Deposit</p>
-      <p class="date" >12-12-22</p>
-    </div>
-    <div class="mesage">
-      <p class="sender" >Dart</p>
-      <p class="description" >Deposit</p>
-        <p class="date" >12-12-22</p>
-      </div>
-      <div class="mesage">
-        <p class="sender" >Dart</p>
-        <p class="description" >Deposit</p>
-        <p class="date" >12-12-22</p>
-      </div>
-      <div class="mesage">
-        <p class="sender" >Dart</p>
-        <p class="description" >Deposit</p>
-        <p class="date" >12-12-22</p>
-      </div>
-      <div class="mesage">
-        <p class="sender" >Dart</p>
-        <p class="description" >Deposit</p>
-        <p class="date" >12-12-22</p>
-      </div>
-      <div class="mesage">
-        <p class="sender" >Dart</p>
-        <p class="description" >Deposit</p>
-        <p class="date" >12-12-22</p>
-      </div>
-    </div>
+  </div>
   </div>
 </template>
 

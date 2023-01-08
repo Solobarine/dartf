@@ -29,8 +29,9 @@ export default {
   .container {
     width: 100%;
     background-image: linear-gradient(90deg, v-bind(themeColors.background_color_1), v-bind(themeColors.background_color_2));
-    height: 83vh;
+    height: 88vh;
     background-color: v-bind(themeColors.background_color_1);
+    margin-top: -26px;
   }
 
   .title {
@@ -76,6 +77,7 @@ export default {
     .container {
       border: 2px solid black;
       height: 760px;
+      margin-top: 0px;
       background-image: linear-gradient(45deg, v-bind(themeColors.background_color_1), v-bind(themeColors.background_color_2));
     }
 
