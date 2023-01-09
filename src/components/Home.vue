@@ -57,8 +57,8 @@
           <p class="amount">$25</p>
         </div>
       </div>
-      <div class="cards">
-        <Card />
+      <div v-bind:key="tarjeta" v-for="tarjeta in cards" class="cards">
+        <Card :tarjeta= "tarjeta.card_no"/>
       </div>
     </div>
   </div>
@@ -85,6 +85,9 @@ export default {
       } else {
         return false
       }
+    },
+    cards () {
+      return this.$store.state.cards
     },
     depositRecords () {
       return this.$store.state.deposits
@@ -249,7 +252,7 @@ export default {
   }
 
   #not {
-    margin-top: 125px;
+    top: 50%;
     color: red;
   }
 
@@ -267,7 +270,7 @@ export default {
 
   .cards .container {
     width: 100%;
-    height: 200px;
+    height: 150px;
     overflow-y: hidden;
     padding: 12px 20px;
     border-radius: 15px;

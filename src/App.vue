@@ -44,7 +44,6 @@ export default {
 
   h1, h2, li, p, button, [type~="submit"], label {
     color: v-bind(themeColors.color_3);
-    /*    color: #fff;*/
   }
 
   .parent {
@@ -58,7 +57,7 @@ export default {
 
   @media only screen and (min-width: 768px) {
     .parent {
-      width: 1900px;
+      width: 1400px;
       height: 870px;
     }
 

@@ -8,11 +8,10 @@
       </select>
       <input v-model="amount" type="number" name="amount" id="amount" placeholder="Enter Amount">
       <p class="transferError">{{errorMessage}}</p>
-      <input @keypress="checkAccountNo" v-model="receiverAccNo" type="text" name="receiverAccNo" id="receiverAccNo" placeholder="Receiver Account Number">
+      <input @keyup="checkAccountNo" v-model="receiverAccNo" type="text" name="receiverAccNo" id="receiverAccNo" placeholder="Receiver Account Number">
       <div class="receiverName">
-        <p class="info">Press the Verify button to see the Name of the Account Holder<br>Always Wait until you can see the recipient's name before clicking the Submit button.</p>
-        <p class="name r-firstName">{{receiverFirstName}}</p>
-        <p class="name r-lastName">{{receiverLastName}}</p>
+        <p class="info">Always Wait until you can see the recipient's name before clicking the Submit button.</p>
+        <p class="name r-firstName">{{receiverFirstName}}   {{receiverLastName}}</p>
       </div>
       <p>{{status}}</p>
       <input v-model="pin" type="number" name="pin" id="pin" placeholder="Enter Your Pin">
@@ -85,10 +84,9 @@ export default {
   },
   methods: {
     checkAccountNo () {
-      console.log('clicking')
-      if (this.receiverAccNo.length >= 5) {
-        console.log('here')
-        const data = {sender_account_no: this.$store.state.userDetails[0].account_no, account_no: this.receiverAccNo}
+      const input = this.receiverAccNo
+      if (this.receiverAccNo.length >= 10) {
+        const data = {sender_account_no: this.$store.state.userDetails[0].account_no, account_no: input}
         console.log(data)
         this.$store.dispatch('getReceiverName', data)
       }
@@ -201,6 +199,11 @@ export default {
     input {
       width: 100%;
       font-size: 13px;
+    }
+
+    .info,
+    .name {
+      font-size: 10px;
     }
 
     .submit {
