@@ -30,7 +30,7 @@ export default {
   }
 
   .social-media {
-    width: 20%;
+    width: 25%;
     display: flex;
     text-align: center;
     margin: auto;

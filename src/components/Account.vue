@@ -249,7 +249,7 @@ export default {
     margin: auto;
     width: 60%;
     height: 50px;
-    font-size: 26px;
+    font-size: 18px;
     border-radius: 15px;
     border: none;
     text-align: center;

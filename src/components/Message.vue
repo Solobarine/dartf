@@ -6,7 +6,7 @@
       <p class="description" >{{message.message}}</p>
       <br/>
       <p class="sender">{{message.sender}}</p>
-      <p class="date" >{{message.created_at}}</p>
+      <p class="date" >{{message.created_at.substring(0, 10)}}</p>
     </div>
   </div>
   </div>

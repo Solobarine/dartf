@@ -24,7 +24,7 @@
         return this.$store.state.settings[0]
       },
       firstName () {
-        return this.$store.state.loggedIn && this.$store.state.userDetails[0].first_name
+        return this.$store.state.loggedIn ? this.$store.state.userDetails[0].first_name : ''
       }
     },
     data () {
@@ -125,7 +125,7 @@
   .user {
     display: flex;
     text-align: center;
-    width: 40%;
+    width: 60%;
     justify-content: space-between;
   }
 
