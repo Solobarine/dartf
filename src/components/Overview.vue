@@ -6,7 +6,7 @@
       <img v-if="sex == 'Male'" id="image" src="../assets/man.png" alt="Profile Pic">
       <img v-else src="../assets/woman.png" alt="Profile Pic" id="image">
       <h3 class="greet">Hello <span class="name">{{userDetails.first_name}}</span></h3>
-      <p class="intro">Welcome back to Dart</p>
+      <p class="intro">Welcome back</p>
     </div>
     <div class="menus">
       <router-link to="/dashboard" class="menu"><i class="fa-solid fa-grip"></i><p @click="closeMenu" class="dashboard">Dashboard</p></router-link>
@@ -84,7 +84,7 @@ export default {
   }
 
   a {
-    width: 60%;
+    width: 80%;
     display: flex;
     text-align: left;
   }
@@ -95,13 +95,18 @@ export default {
   }
 
   .menu p {
-    margin-left: 30px;
+    margin-left: 14px;
+    font-size: 14px;
   }
 
   .greet,
   .intro {
     font-size: 25px;
     margin-bottom: 20px;
+  }
+
+  .intro {
+    font-size: 20px;
   }
 
   span {

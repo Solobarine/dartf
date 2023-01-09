@@ -31,6 +31,9 @@ export const store = createStore({
     }
   },
   mutations: {
+    cookieLoader: () => {
+
+    },
     createUser: async(state, payload) => {
       console.log(payload)
       if (payload.response == 'Account already Exists') {
@@ -87,13 +90,18 @@ export const store = createStore({
       
     },
     receiver: async (state, payload) => {
-      if (payload.res == null) {
+      if (payload.response == null) {
         return state.transferReceipient.errorMessage = 'User Not Found'
-      } else if (payload.res !== 'No User Found') {
-        state.transferReceipient.receiverFirstName = payload.res.first_name
-        state.transferReceipient.receiverLastName = payload.res.last_name
+      } else if (payload.response == 'User Not Found') {
+         state.transferReceipient.errorMessage = payload.response
+        state.transferReceipient.receiverFirstName = ''
+        state.transferReceipient.receiverLastName = ''
+        return
       } else {
-        state.transferReceipient.errorMessage = payload.res
+        state.transferReceipient.receiverFirstName = payload.response.first_name
+        state.transferReceipient.receiverLastName = payload.response.last_name
+        state.transferReceipient.errorMessage = ''
+        return
       }
     },
     transfer: (state, payload) => {
@@ -133,6 +141,9 @@ export const store = createStore({
     }
   },
   actions: {
+    cookieLoader: async () => {
+    
+    },
     populateStore: async (context, payload) => {
       const url = 'https://pure-harbor-30545.herokuapp.com/user/login'
       const data = {email: payload.email, password: payload.password}
@@ -201,7 +212,7 @@ export const store = createStore({
         }
       }
       const response = await fetch(url, options)
-      const data = await response.text()
+      const data = await response.json()
       console.log(data)
 
       context.commit('receiver', data)

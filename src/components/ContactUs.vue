@@ -66,7 +66,7 @@ export default {
   }
 
   #comment {
-    height: 55%;
+    height: 35%;
   }
 
   .submit {

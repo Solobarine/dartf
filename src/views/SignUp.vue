@@ -85,7 +85,11 @@ export default {
       }
       console.log(data) 
       if (this.password === this.confirmPassword && this.firstName !== '' && this.lastName !== '' && this.email !== '' && this.state !== '' && this.address !== '' && this.userCountry !== '' && this.date_of_birth !== '' && this.city !== '') {
-        this.$store.dispatch('createAnAccount', data)
+        this.$store.dispatch('createAnAccount', data).then(() => {
+          if (this.$store.state.loggedIn == true) {
+            this.$router.push({name: 'Dashboard'})
+          }
+        })
       } else {
         this.error = 'Invalid Credentials.'
       }

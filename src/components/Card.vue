@@ -76,7 +76,7 @@ export default {
     grid-area: number;
     font-weight: 700;
     text-align: center;
-    font-size: 28px;
+    font-size: 20px;
   }
 
   .fa-microchip {
