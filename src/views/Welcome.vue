@@ -76,15 +76,15 @@ export default {
   @media only screen and (min-width: 768px) {
     .container {
       border: 2px solid black;
-      height: 760px;
+      height: 80vh;
       margin-top: 0px;
       background-image: linear-gradient(45deg, v-bind(themeColors.background_color_1), v-bind(themeColors.background_color_2));
     }
 
     .title {
       text-align: center;
-      font-size: 75px;
-      margin-top: 160px;
+      font-size: 40px;
+      margin-top: 90px;
     }
 
     .subtitle {
@@ -94,15 +94,17 @@ export default {
     }
 
     .buttons {
-      margin-left: 80%;
-      padding: 14px;
+      display: flex;
+      justify-content: space-between;
+      margin-left: 77%;
+      padding: 8px;
       width: 18%;
     }
 
     .buttons > a > button {
-      font-size: 20px;
-      padding: 14px;
-      width: 120px;
+      font-size: 14px;
+      padding: 10px;
+      width: 90px;
     }
   }
 </style>

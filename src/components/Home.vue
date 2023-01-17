@@ -53,7 +53,7 @@
           <p>to</p>
           <i class="fa-solid fa-circle-user"></i>
           <p>Fabio L.</p>
-          <p>07-09-2022</p>
+          <p class="time">07-09-2022</p>
           <p class="amount">$25</p>
         </div>
       </div>
@@ -130,7 +130,6 @@ export default {
     display: flex;
     flex-direction: column;
     width: 80%;
-    height: 80%;
     padding: 20px;
     overflow-y: scroll;
     background-color: v-bind(themeColors.background_color_5);
@@ -143,6 +142,7 @@ export default {
   #accountSummary {
     display: flex;
     justify-content: space-between;
+    height: 120px;
   }
 
   #accountSummary > div {
@@ -152,7 +152,7 @@ export default {
     justify-content: space-around;
     border-radius: 12px;
     padding: 12px;
-    font-size: 20px;
+    font-size: 15px;
     border: 2px solid v-bind(themeColors.background_color_1);
   }
 
@@ -161,12 +161,12 @@ export default {
   }
 
   i {
-    font-size: 30px;
+    font-size: 20px;
     color: v-bind(themeColors.color_1);
   }
 
   .recent {
-    margin-top: 40px;
+    margin-top: 20px;
   }
 
   .cashFlow {
@@ -192,13 +192,17 @@ export default {
 
   .transfers div {
     display: grid;
-    grid-template-columns: 0.2fr 0.8fr 0.4fr 0.2fr 1fr 0.8fr 0.4fr  ;
-    font-size: 18px;
+    grid-template-columns: 0.2fr 0.8fr 0.4fr 0.2fr 1fr 1.3fr 0.4fr  ;
+    font-size: 14px;
     font-weight: 500;
+    text-align: center;
+  }
+
+  .time {
+    font-size: 14px;
   }
 
   .send {
-    border: 2px solid black;
     border-radius: 10px;
     padding: 10px;
     text-align: center;
@@ -219,13 +223,13 @@ export default {
 
   .t-name {
     grid-area: name;
-    font-size: 21px;
+    font-size: 12px;
     font-weight: 500;
   }
 
   .dinero {
     grid: amount;
-    font-size: 22px;
+    font-size: 16px;
     font-weight: 700;
     color: green;
     padding: 10px;
@@ -236,7 +240,7 @@ export default {
   }
 
   .amount {
-    font-size: 20px;
+    font-size: 14px;
     font-weight: 600;
     color: red;
   }
@@ -262,6 +266,8 @@ export default {
 
   .deposits {
     width: 100%;
+    height: 45px;
+    background-color: purple;
   }
 
   .cards {
@@ -270,7 +276,7 @@ export default {
 
   .cards .container {
     width: 100%;
-    height: 150px;
+    height: 120px;
     overflow-y: hidden;
     padding: 12px 20px;
     border-radius: 15px;

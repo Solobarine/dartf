@@ -57,8 +57,8 @@ export default {
 
   @media only screen and (min-width: 768px) {
     .parent {
-      width: 1400px;
-      height: 870px;
+      width: 99vw;
+      height: 100vh;
     }
 
     a, .active {

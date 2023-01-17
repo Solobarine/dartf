@@ -62,9 +62,8 @@ export default {
     display: flex;
     flex-direction: column;
     background-image: linear-gradient(v-bind(themeColors.background_color_1), v-bind(themeColors.background_color_4));
-    height: 100%;
     width: 20%;
-    padding-left: 30px;
+    padding-left: 16px;
   }
 
   .open {
@@ -76,11 +75,12 @@ export default {
   }
 
   #image {
-    width: 100px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     background: black;
-    margin-bottom: 20px;
+    margin: 10px;
+    margin-left: 20%;
   }
 
   a {
@@ -91,7 +91,7 @@ export default {
 
   .menu i {
     margin-top: 5px;
-    font-size: 30px;
+    font-size: 1rem;
   }
 
   .menu p {
@@ -101,8 +101,7 @@ export default {
 
   .greet,
   .intro {
-    font-size: 25px;
-    margin-bottom: 20px;
+    font-size: 20px;
   }
 
   .intro {
@@ -120,7 +119,7 @@ export default {
   }
 
   .intro {
-    font-size: 30px;
+    font-size: 18px;
     font-weight: 600;
   }
 
@@ -132,7 +131,7 @@ export default {
   }
 
   .menus > a > p {
-    font-size: 25px;
+    font-size: 16px;
   }
 
   i {

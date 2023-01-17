@@ -77,18 +77,18 @@
     width: 5%;
     align-items: center;
     justify-content: space-evenly;
-    margin-top: -8px;
+    margin-top: 0px;
   }
 
   #company > * {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   #navBar {
     display: flex;
     text-align: center;
     justify-content: space-between;
-    padding: 23px;
+    padding: 10px;
     background-image: linear-gradient(to right, v-bind(themeColors.background_color_1), #fff 25%, v-bind(themeColors.background_color_2));
   }
 
@@ -97,8 +97,7 @@
     display: flex;
     text-align: center;
     justify-content: space-between;
-    font-size: 20px;
-    margin-top: -8px;
+    font-size: 16px;
   }
 
   a {
@@ -109,11 +108,10 @@
     width: 10%;
     display: flex;
     justify-content: space-evenly;
-    margin-top: -8px;
   }
 
   #icons > a {
-    font-size: 20px;
+    font-size: 15px;
     text-decoration: none;
   }
 
@@ -130,7 +128,7 @@
   }
 
   .user i {
-    margin-top: 5px;
+    margin-top: 3px;
   }
 }
 </style>

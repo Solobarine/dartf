@@ -25,7 +25,7 @@ export default {
 
 <style scoped>
   .footer {
-    padding: 20px;
+    padding: 10px;
     background-color: v-bind(themeColors.background_color_4);
   }
 
@@ -34,13 +34,13 @@ export default {
     display: flex;
     text-align: center;
     margin: auto;
-    padding-top: 20px;
+    padding-top: 10px;
     justify-content: space-evenly;
     color: v-bind(themeColors.color_1);
   }
 
   i {
-    font-size: 35px;
+    font-size: 25px;
   }
 
   i:hover {
@@ -50,7 +50,7 @@ export default {
   p {
     text-align: center;
     font-size: 16px;
-    margin-top: 25px;
+    margin-top: 15px;
     color: v-bind(themeColors.color_1);
   }
 

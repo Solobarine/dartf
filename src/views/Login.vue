@@ -47,7 +47,7 @@ export default {
 
 <style scoped>
   .container {
-    height: 760px;
+    height: 75%;
     padding: 30px;
     background-color: v-bind(themeColors.background_color_5);
   }
@@ -63,7 +63,7 @@ export default {
 
   .login {
     text-align: center;
-    font-size: 25px;
+    font-size: 18px;
     margin-bottom: 30px;
   }
 
@@ -79,7 +79,7 @@ export default {
 
   .input {
     width: 80%;
-    height: 50px;
+    height: 40px;
     margin-bottom: 20px;
     border-radius: 10px;
     padding-left: 20px;
@@ -103,7 +103,7 @@ export default {
 
   #signup {
     margin-top: 20px;
-    font-size: 20px;
+    font-size: 14px;
   }
 
   a {
