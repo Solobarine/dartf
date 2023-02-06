@@ -130,7 +130,6 @@ export default {
     }
 
     input {
-      height: 40px;
     }
   }
 </style>

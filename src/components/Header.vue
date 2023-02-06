@@ -74,14 +74,14 @@
 
   #company {
     display: flex;
-    width: 5%;
+    width: 10%;
     align-items: center;
-    justify-content: space-evenly;
-    margin-top: -8px;
+    justify-content: space-around;
   }
 
   #company > * {
-    font-size: 22px;
+    font-size: 25px;
+    font-weight: 600;
   }
 
   #navBar {
@@ -97,8 +97,8 @@
     display: flex;
     text-align: center;
     justify-content: space-between;
-    font-size: 20px;
-    margin-top: -8px;
+    font-size: 18px;
+    font-weight: 500;
   }
 
   a {
@@ -109,17 +109,16 @@
     width: 10%;
     display: flex;
     justify-content: space-evenly;
-    margin-top: -8px;
   }
 
   #icons > a {
-    font-size: 20px;
+    font-size: 18px;
     text-decoration: none;
   }
 
   .navLinks > a p,
   .discover {
-    color: #000
+    color: #000;
   }
 
   .user {
@@ -131,6 +130,7 @@
 
   .user i {
     margin-top: 5px;
+    color: #555;
   }
 }
 </style>

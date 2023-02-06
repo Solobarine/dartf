@@ -2,9 +2,11 @@
   <i @click="openMenu" class="fa-solid fa-bars open"></i>
   <div class="overview hide">
     <div class="bio">
-      <p @click="closeMenu" id="close">&#10005;</p>
-      <img v-if="sex == 'Male'" id="image" src="../assets/man.png" alt="Profile Pic">
-      <img v-else src="../assets/woman.png" alt="Profile Pic" id="image">
+      <h3 @click="closeMenu" id="close">&#10005;</h3>
+      <div>    
+        <img v-if="sex == 'Male'" id="image" src="../assets/man.png" alt="Profile Pic">
+        <img v-else src="../assets/woman.png" alt="Profile Pic" id="image">
+      </div>
       <h3 class="greet">Hello <span class="name">{{userDetails.first_name}}</span></h3>
       <p class="intro">Welcome back</p>
     </div>
@@ -67,6 +69,12 @@ export default {
     padding-left: 30px;
   }
 
+  .bio div {
+    width: 85%;
+    display: flex;
+    justify-content: center;
+  }
+
   .open {
     display: none;
   }
@@ -80,7 +88,8 @@ export default {
     height: 100px;
     border-radius: 50%;
     background: black;
-    margin-bottom: 20px;
+    
+    margin-bottom: 10px;
   }
 
   a {
@@ -91,26 +100,23 @@ export default {
 
   .menu i {
     margin-top: 5px;
-    font-size: 30px;
+    font-size: 20px;
   }
 
   .menu p {
     margin-left: 14px;
-    font-size: 14px;
-  }
-
-  .greet,
-  .intro {
-    font-size: 25px;
-    margin-bottom: 20px;
-  }
-
-  .intro {
     font-size: 20px;
   }
 
+  .greet {
+    font-size: 18px;
+    width: 55%;
+    margin: auto;
+    margin-bottom: 10px;
+  }
+
   span {
-    font-size: 35px;
+    font-size: 22px;
   }
 
   h3,
@@ -120,7 +126,9 @@ export default {
   }
 
   .intro {
-    font-size: 30px;
+    font-size: 18px;
+    width: 65%;
+    margin: auto;
     font-weight: 600;
   }
 
@@ -129,10 +137,6 @@ export default {
     flex-direction: column;
     justify-content: space-evenly;
     height: 60%;
-  }
-
-  .menus > a > p {
-    font-size: 25px;
   }
 
   i {
@@ -146,6 +150,7 @@ export default {
       z-index: 100;
       width: 100%;
       height: 100vh;
+      padding-left: 0;
     }
 
     .hide {
@@ -168,16 +173,17 @@ export default {
 
     #image {
       margin-top: 20px;
-      margin-left: 33%;
+      margin-left: 10%;
       margin-bottom: 8px;
     }
 
     .greet,
     .intro {
+      width: 100%;
+      margin: auto;
       font-size: 19px;
       margin-top: 5px;
       text-align: center;
-      margin-left: -30px;
     }
 
     .menus > a > p {
@@ -193,10 +199,12 @@ export default {
     a {
       display: block;
       width: 100%;
+      padding-left: 10%;
     }
 
      p {
-      text-decoration: none;
+       text-decoration: none;
+       text-align: center;
     }
 
     i {

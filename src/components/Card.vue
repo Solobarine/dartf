@@ -44,7 +44,7 @@ export default {
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
-    font-size: 23px;
+    font-size: 16px;
   }
 
   .company {
@@ -80,19 +80,19 @@ export default {
   }
 
   .fa-microchip {
-    font-size: 26px;
+    font-size: 22px;
     padding-top: 5px;
   }
 
   .fa-cc-visa {
     grid-area: visa;
     text-align: center;
-    font-size: 25px;
+    font-size: 18px;
     color: #fff;
   }
 
   img {
-    width: 20%;
+    width: 15%;
   }
 
   @media only screen and (max-width: 768px) {
@@ -105,11 +105,11 @@ export default {
     }
 
     .accno {
-      font-size: 16px;
+      font-size: 14px;
     }
 
     .fa-cc-visa {
-      font-size: 18px;
+      font-size: 15px;
     }
   }
 </style>
