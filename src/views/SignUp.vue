@@ -3,31 +3,67 @@
     <div class="contents">
       <h2 id="sign">Please Create an Account</h2>
       <div class="fields">
-      <input type="text" v-model="firstName" name="firstName" placeholder="First Name" minlength="2" maxlength="40" required>
-      <input type="text" v-model="lastName" name="lastName" placeholder="Last Name" minlength="2" maxlength="40" required>
-      <input type="password" v-model="password" name="password" id="password" placeholder="Password" minlength="8" maxlength="15" required>
-      <span id="passwdError">{{error}}</span>
-      <input type="password" v-model="confirmPassword" name="confirmPassword" id="c-password" placeholder="Confirm Password" required>
-      <label for="date">Date of Birth<input type="date" name="date" id="date" v-model="date_of_birth" required></label>
-      <input type="email" v-model="email" name="email" placeholder="Email" required>
-      <span class="accountExist">{{signUpError}}</span>
-      <input type="text" v-model="phoneNo" name="phoneNo" placeholder="Phone Number" required>
-      <select name="countries" v-model="userCountry" required>
-        <option disabled value="">Country of Origin</option>
-        <option v-bind:key="country" v-for="country in countries">
-          <p class="countryName" name="userCountry" value="country.name">{{country.name}}</p>
-          <p value="" class="countryFlag">{{country.flag}}</p>
-        </option>
-      </select>
-      <input type="text" v-model="state" name="state" id="state" placeholder="State" minlength="2" maxlength="40" required>
-      <input type="text" v-model="city" name="city" id="city" placeholder="City" minlength="2" maxlength="40" required>
-      <input type="text" v-model="address" name="address" id="address" placeholder="Address" minlength="8" maxlength="60" required>
-      <select name="gender" v-model="gender" required>
-        <option disabled value="">Gender</option>
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-        <option value="Other">Others</option>
-      </select>
+        <div>
+          <label for="firstName">Enter First Name</label>
+        <input type="text" v-model="firstName" name="firstName" placeholder="First Name" minlength="2" maxlength="40" required>
+      </div>
+      <div>
+        <label for="lastName">Enter Last Name</label>
+        <input type="text" v-model="lastName" name="lastName" placeholder="Last Name" minlength="2" maxlength="40" required>
+      </div>
+      <div>
+        <label for="password">Enter Password</label>
+    <input type="password" v-model="password" name="password" id="password" placeholder="Password" minlength="8" maxlength="15" required>
+  </div>
+      <div>
+        <span id="passwdError">{{error}}</span>
+        <label for="confirmPassword">Re-enter Password</label>
+        <input type="password" v-model="confirmPassword" name="confirmPassword" id="c-password" placeholder="Confirm Password" required>
+      </div>
+      <div>
+        <label for="date">Date of Birth</label>
+        <input type="date" name="date" id="date" v-model="date_of_birth" required>
+      </div>
+      <div>
+        <label for="email">Enter Email</label>
+        <input type="email" v-model="email" name="email" placeholder="Email" required>
+      </div>
+      <div>
+        <span class="accountExist">{{signUpError}}</span>
+        <label for="phoneNo">Enter Phone Number</label>
+        <input type="text" v-model="phoneNo" name="phoneNo" placeholder="Phone Number" required>
+      </div>
+      <div>
+        <label for="countries">Country of Origin</label>
+        <select name="countries" v-model="userCountry" required>
+          <option disabled value="">Country of Origin</option>
+          <option v-bind:key="country" v-for="country in countries">
+            <p class="countryName" name="userCountry" value="country.name">{{country.name}}</p>
+            <p value="" class="countryFlag">{{country.flag}}</p>
+          </option>
+        </select>
+      </div>
+      <div>
+        <label for="state">State</label>
+        <input type="text" v-model="state" name="state" id="state" placeholder="State" minlength="2" maxlength="40" required>
+      </div>
+      <div>
+        <label for="City">City</label>
+        <input type="text" v-model="city" name="city" id="city" placeholder="City" minlength="2" maxlength="40" required>
+      </div>
+      <div>
+        <label for="address">Address</label>
+        <input type="text" v-model="address" name="address" id="address" placeholder="Address" minlength="8" maxlength="60" required>
+      </div>
+      <div>
+        <label for="gender">Gender</label>
+        <select name="gender" v-model="gender" required>
+          <option disabled value="">Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Others</option>
+        </select>
+      </div>
       <input v-on:click="createAccount" id="submit" type="submit" value="Submit">
       <p>Already a User, <router-link to="/login" id="login">Sign in</router-link></p>
     </div>
@@ -108,47 +144,42 @@ export default {
 
   .sign-up {
     color: #00f;
-    height: 760px;
-    overflow-y: scroll;
     background-color: v-bind(themeColors.background_color_5);
   }
 
   .fields {
-    width: 70%;
-    height: 95%;
+    width: 60%;
     margin: auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 15px;
   }
 
-  input,
-  select {
-    width: 80%;
-    height: 40px;
-    margin-top: 20px;
-    padding-left: 20px;
+  .fields div {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  ::placeholder {
+    color: v-bind(themeColors.color_3);
+  }
+
+  .fields div input,
+  .fields div select {
+    padding: 15px;
+    border-radius: 15px;
+    background-color: v-bind(themeColors.background_color_4);
     border: none;
-    border-radius: 10px;
-    background-color: v-bind(themeColors.color_2);
-  }
-
-  label {
-    margin-bottom: 30px;
-    width: 80%;
-    text-align: center;
-  }
-
-  label input {
-    width: 100%;
+    min-width: 0;
   }
 
   #submit {
-    width: 25%;
     padding-left: 0;
-    margin-left: 30%;
     font-size: 20px;
+    border: none;
+    border-radius: 15px;
     padding: 12px;
-    height: 50px;
     background-color: v-bind(themeColors.background_color_1);
   }
 
@@ -164,31 +195,39 @@ export default {
 
     .fields {
       width: 70%;
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: 1fr;
       align-items: center;
       justify-content: space-evenly;
       margin: auto;
     }
 
-    input,
-    select {
-      width: 80%;
-      margin: auto;
-      margin-bottom: 15px;
+    .fields > p {
+      text-align: center;
+    }
+
+    .fields div input,
+    .fields div select {
+      height: 40px;
+      width: 100%;
+    }
+
+    .fields div select {
+      padding: 0;
+      padding-left: 12px;
     }
 
     label {
-      display: flex;
-      flex-direction: column;
-      height: 60px;
-      justify-content: space-evenly;
+      text-align: center;
+      font-weight: 500;
+      margin-bottom: 10px;
     }
 
     #submit {
       font-size: 12px;
-      height: 40px;
-      width: 65px;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
       margin: auto;
       margin-bottom: 15px;
     }

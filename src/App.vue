@@ -51,14 +51,14 @@ export default {
     background-color: v-bind(themeColors.background_color_5);
   }
 
-  .footer {
-    min-width: 20vh;
+  input[type="submit"]:active {
+    border: 1px solid #000;
   }
 
   @media only screen and (min-width: 768px) {
     .parent {
-      width: 1400px;
-      height: 870px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
     }
 
     a, .active {

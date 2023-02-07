@@ -47,7 +47,6 @@ export default {
 
 <style scoped>
   .container {
-    height: 760px;
     padding: 30px;
     background-color: v-bind(themeColors.background_color_5);
   }
@@ -68,7 +67,7 @@ export default {
   }
 
   .contents {
-    width: 30%;
+    width: 45%;
     display: flex;
     flex-direction: column;
     padding: 20px;

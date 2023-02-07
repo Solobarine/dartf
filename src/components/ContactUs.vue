@@ -3,7 +3,7 @@
     <form id="form">
       <h2 class="head">Send Your Suggestions to Us. We appreciate Your Feedback.</h2>
       <input v-model="mail" type="email" name="email" id="mail" placeholder="Enter Your Email" required>
-      <input v-model="feedback" type="text" name="comment" id="comment" minlength="2" maxlength="100" placeholder="Give your Feedback" required>
+      <textarea v-model="feedback" type="text" name="comment" id="comment" minlength="2" maxlength="100" placeholder="Give your Feedback" required></textarea>
       <input class="submit" type="submit" value="Submit">
     </form>
   </div>
@@ -35,12 +35,12 @@ export default {
 
   #form {
     margin-top: 80px;
-    width: 30%;
+    width: 50%;
     height: 70%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    margin-left: 35%;
+    margin: auto;
     align-items: center;
   }
 
@@ -50,14 +50,19 @@ export default {
     margin-bottom: 20px;
   }
 
-  input {
+  input,
+  textarea {
     width: 80%;
     height: 50px;
     justify-content: space-evenly;
     padding-left: 20px;
     border-radius: 10px;
-    border: none;
+    border: 1px solid v-bind(themeColor.background_color_1);
     background-color: v-bind(themeColor.background_color_3);
+  }
+
+  ::placeholder {
+    color: v-bind(themeColor.color_3);
   }
 
   .head,
@@ -67,6 +72,7 @@ export default {
 
   #comment {
     height: 35%;
+    padding-top: 15px;
   }
 
   .submit {
@@ -74,6 +80,7 @@ export default {
     padding-left: 0;
     padding: 12px;
     font-size: 18px;
+    border: none;
     background-color: v-bind(themeColor.background_color_1);
   }
 

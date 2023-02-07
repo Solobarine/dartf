@@ -158,7 +158,7 @@ export default {
   }
   
   h2 {
-    font-size: 35px;
+    font-size: 25px;
   }
 
   h1,
@@ -189,6 +189,7 @@ export default {
   }
 
   .section > div {
+    flex-basis: 40%;
     padding: 20px;
     border: 2px solid v-bind(themeColors.background_color_1);
     border-radius: 30px;
@@ -196,7 +197,7 @@ export default {
 
   .accountDetails > p {
     text-align: start;
-    font-size: 28px;
+    font-size: 15px;
     font-weight: 500;
     margin-bottom: 12px;
   }
@@ -260,7 +261,7 @@ export default {
   }
 
   .card-graphic .container {
-    height: 200px;
+    height: 170px;
     overflow-y: hidden;
     padding: 15px;
     margin: auto;
@@ -280,15 +281,15 @@ export default {
   }
 
   .cards > p {
-    font-size: 25px;
+    font-size: 16px;
   }
 
   .stats > div > p {
-    font-size: 22px;
+    font-size: 16px;
   }
 
   .stats > div > h3 {
-    font-size: 25px;
+    font-size: 19px;
     font-weight: 500;
     color: v-bind(themeColors.color_3);
   }
@@ -298,6 +299,7 @@ export default {
     padding: 15px;
     border-radius: 12px;
     background-color: v-bind(themeColors.background_color_3);
+    box-shadow: 10px 10px 20px v-bind(themeColors.background_color_2);
   }
 
   @media only screen and (max-width: 768px) {

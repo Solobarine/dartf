@@ -152,8 +152,9 @@ export default {
     justify-content: space-around;
     border-radius: 12px;
     padding: 12px;
-    font-size: 20px;
+    font-size: 16px;
     border: 2px solid v-bind(themeColors.background_color_1);
+    box-shadow: 1px 15px 20px v-bind(themeColors.background_color_1);
   }
 
   #accountSummary > div > *:nth-child(even) {
@@ -161,7 +162,7 @@ export default {
   }
 
   i {
-    font-size: 30px;
+    font-size: 20px;
     color: v-bind(themeColors.color_1);
   }
 
