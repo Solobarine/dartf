@@ -55,7 +55,7 @@ export default {
     border: 1px solid #000;
   }
 
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 500px) {
     .parent {
       display: grid;
       grid-template-rows: auto 1fr auto;
