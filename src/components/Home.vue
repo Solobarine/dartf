@@ -278,7 +278,7 @@ export default {
     border: 2px solid v-bind(themeColors.color_1);
   }
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 500px) {
     .home {
       height: auto;
       width: 100%;
