@@ -1,10 +1,12 @@
 <template>
   <header  id="navBar">
     <div id="company">
-      <h3 id="companyName">dart</h3> 
-      <i class="fa-solid fa-arrows-to-circle"></i>
+      <h3 id="companyName">dart</h3>
+      <div id="company_image">
+        <img src="/arrow.png" alt="Dart">
+      </div>
     </div>
-    <div class="navLinks">
+    <div class="nav_links">
       <router-link to="/"><p class="welcome">Welcome</p></router-link>
       <router-link to="/dashboard/contact-us"><p class="contact">Contact Us</p></router-link>
       <p class="discover">Discover</p>
@@ -36,101 +38,38 @@
   };
 </script>
 
-<style scoped>
+<style>
   header {
-    align-content: center;
-    padding: 5px;
-    background: v-bind(themeColors.background_color_1);
-  }
-
-  .fa-arrows-to-circle {
-    padding-top: 6px;
-  }
-
-  #company {
-    width: 10%;
     display: flex;
-    justify-content: space-between;
-  }
-
-  .navLinks,
-  #icons {
-    display: none;
-  }
-
-  h3,
-  #company i,
-  #icons i,
-  p {
-    color: v-bind(themeColors.color_3);
-  }
-
-  @media only screen and (min-width: 768px) {
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  #company {
-    display: flex;
-    width: 10%;
     align-items: center;
-    justify-content: space-around;
-  }
-
-  #company > * {
-    font-size: 25px;
-    font-weight: 600;
-  }
-
-  #navBar {
-    display: flex;
-    text-align: center;
     justify-content: space-between;
-    padding: 23px;
-    background-image: linear-gradient(to right, v-bind(themeColors.background_color_1), #fff 25%, v-bind(themeColors.background_color_2));
+    padding: 15px;
+    background-image: linear-gradient(90deg, v-bind(themeColors.background_color_1), #fff, v-bind(themeColors.background_color_2));
   }
 
-  .navLinks {
-    width: 30%;
-    display: flex;
-    text-align: center;
-    justify-content: space-between;
-    font-size: 18px;
-    font-weight: 500;
+  #company_image {
+    width: 30px;
+    overflow: hidden;
   }
 
-  a {
-    text-decoration: none;
+  #company_image img {
+    width: 100%;
   }
 
+  #company,
+  .nav_links,
   #icons {
-    width: 10%;
     display: flex;
-    justify-content: space-evenly;
+    gap: 10px;
   }
 
-  #icons > a {
-    font-size: 18px;
-    text-decoration: none;
+  .nav_links {
+    gap: 70px;
   }
 
-  .navLinks > a p,
-  .discover {
-    color: #000;
+  @media screen and (max-width: 600px) {
+    .nav_links {
+      display: none;
+    }
   }
-
-  .user {
-    display: flex;
-    text-align: center;
-    width: 60%;
-    justify-content: space-between;
-  }
-
-  .user i {
-    margin-top: 5px;
-    color: #555;
-  }
-}
 </style>

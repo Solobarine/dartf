@@ -21,6 +21,5 @@ export default {
 <style scoped>
   .container {
     display: flex;
-    height: 760px;
   } 
 </style>

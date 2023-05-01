@@ -65,7 +65,7 @@ export default {
     flex-direction: column;
     background-image: linear-gradient(v-bind(themeColors.background_color_1), v-bind(themeColors.background_color_4));
     height: 100%;
-    width: 20%;
+    width: 250px;
     padding-left: 30px;
   }
 
@@ -87,8 +87,7 @@ export default {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    background: black;
-    
+    background: black; 
     margin-bottom: 10px;
   }
 
@@ -143,7 +142,7 @@ export default {
     color: v-bind(themeColors.color_1);
   }
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 500px) {
     .overview {
       position: fixed;
       top: 0;

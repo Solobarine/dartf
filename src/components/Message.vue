@@ -55,8 +55,6 @@ export default {
     width: 80%;
     display: flex;
     flex-direction: column;
-    height: 80%;
-    overflow-y: scroll;
     background-color: v-bind(themeColors.background_color_5);
   }
 
@@ -75,8 +73,6 @@ export default {
     display: flex;
     flex-direction: column;
     padding-left: 20px;
-    height: 100%;
-    overflow-y: scroll;
   }
 
   .mesage {

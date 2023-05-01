@@ -1,19 +1,20 @@
 <template>
   <div class="container">
-    <h2 class="transfer">Make Your Transfer</h2>
     <form class="form">
+      <h2 class="transfer">Make Your Transfer</h2>
       <select v-model="card" name="card" id="cards">
         <option disabled value="">Choose Your Card</option>
         <option v-bind:key="card" v-for="card in cards">{{card.card_no}}</option>
       </select>
       <input v-model="amount" type="number" name="amount" id="amount" placeholder="Enter Amount">
-      <p class="transferError">{{errorMessage}}</p>
-      <input @keyup="checkAccountNo" v-model="receiverAccNo" type="text" name="receiverAccNo" id="receiverAccNo" placeholder="Receiver Account Number">
+      <div>
+        <p class="transferError">{{errorMessage}}</p>
+        <input @keyup="checkAccountNo" v-model="receiverAccNo" type="text" name="receiverAccNo" id="receiverAccNo" placeholder="Receiver Account Number">
+      </div>
       <div class="receiverName">
-        <p class="info">Always Wait until you can see the recipient's name before clicking the Submit button.</p>
+        <p class="info"></p>
         <p class="name r-firstName">{{receiverFirstName}}   {{receiverLastName}}</p>
       </div>
-      <p>{{status}}</p>
       <input v-model="pin" type="number" name="pin" id="pin" placeholder="Enter Your Pin">
       <input v-model="description" type="text" name="description" id="description" placeholder="Description">
       <input @click="makeTransfer" class="submit" type="submit" value="Submit">
@@ -120,44 +121,49 @@ export default {
 <style scoped>
   .container {
     width: 80%;
-    height: 80%;
-    display: flex;
-    flex-direction: column;
-    padding-top: 40px;
     background-color: v-bind(themeColors.background_color_5);
   }
 
   .transfer {
+    grid-column: span 2;
     text-align: center;
-    font-size: 35px;
+    font-size: 20px;
   }
 
   .form {
-    width: 40%;
-    margin-left: 30%;
-    display: flex;
-    flex-direction: column;
+    width: 60%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     align-items: center;
+    gap: 30px;
+    border-radius: 30px;
+    padding-bottom: 40px;
+    justify-content: center;
+    margin: auto;
+    background-image: linear-gradient(90deg, v-bind(themeColors.background_color_1), v-bind(themeColors.background_color_2));
+  }
+
+  form div {
+    display: grid;
+    gap: 10px;
   }
 
   h2,
-  p,
-  .submit {
+  p {
     color: v-bind(themeColors.color_3);
   }
 
   select,
   input {
-    width: 70%;
-    height: 50px;
+    padding: 15px;
     border-radius: 10px;
-    margin-top: 30px;
     border: none;
-    padding-left: 20px;
+    min-width: 0;
   }
 
   select {
-    font-size: 20px;
+    font-size: .9rem;
     text-align: center;
   }
 
@@ -178,21 +184,25 @@ export default {
   }
 
   .submit {
-    width: 25%;
+    color: #eee;
     padding-left: 0;
     padding: 13px;
-    font-size: 18px;
-    background-color: v-bind(themeColors.background_color_1);
+    font-size: 16px;
+    width: 150px;
+    background-color: var(--green);
   }
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 500px) {
     .container {
       width: 100%;
+      padding: 30px 0;
     }
 
     .form {
-      margin: auto;
       width: 80%;
+      display: flex;
+      flex-direction: column;
+      margin: auto;
     }
 
     select,
@@ -207,7 +217,6 @@ export default {
     }
 
     .submit {
-      width: 40%;
       font-size: 14px;
       padding: 8px;
     }

@@ -1,11 +1,18 @@
 <template>
   <div class="container">
-    <div class="buttons">
-      <router-link to="/login"><button id="login">Login</button></router-link>
-      <router-link to="/signup"><button id="signUp">Sign Up</button></router-link>
+    <div id="content">
+      <h1 class="title">Welcome to Dart</h1>
+      <h3 class="subtitle">The No 1 Financial Service Provider</h3>
+      <div class="buttons">
+        <router-link to="/login">Login</router-link>
+        <router-link to="/signup">Sign Up</router-link>
+      </div>
     </div>
-    <h1 class="title">Welcome to Dart</h1>
-    <h3 class="subtitle">The No 1 Financial Service Provider</h3>
+    <div id="welcome_image">
+      <div>
+        <img src="/image_0.png" alt="">
+      </div>
+    </div>
   </div>
 </template>
 
@@ -29,15 +36,18 @@ export default {
   .container {
     width: 100%;
     background-image: linear-gradient(90deg, v-bind(themeColors.background_color_1), v-bind(themeColors.background_color_2));
-    height: 88vh;
     background-color: v-bind(themeColors.background_color_1);
-    margin-top: -26px;
+  }
+
+  #content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
   }
 
   .title {
-    font-size: 27px;
-    font-weight: 700;
-    margin-top: 28vh;
+    margin-top: 50px;
   }
 
   .title,
@@ -56,53 +66,53 @@ export default {
   }
 
   .buttons {
-    margin-top: 25px;
-    margin-left: 60%;
-    width: 35%;
-    padding: 8px 0;
     display: flex;
-    justify-content: space-evenly;
+    gap: 20px;
+    justify-content: center;
   }
 
-  .buttons > a > button {
-    font-size: 7px;
-    padding: 5px;
-    width: 50px;
-    border-radius: 10px;
+  #welcome_image {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+  }
+
+  #welcome_image div {
+    width: 80%;
+    max-height: 600px;
+    margin: auto;
+  }
+
+  #welcome_image div img {
+    width: 100%;
+    object-fit: cover;
+  }
+  .buttons > a {
+    color: #333;
     border: 2px solid v-bind(themeColors.background_color_1);
     background-color: v-bind(themeColors.background_color_4);
+    text-align: center;
+    border-radius: 10px;
+    width: 120px;
+    padding: 15px;
   }
 
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 600px) {
     .container {
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      flex-basis: fill;
       border: 2px solid black;
-      height: 760px;
-      margin-top: 0px;
       background-image: linear-gradient(45deg, v-bind(themeColors.background_color_1), v-bind(themeColors.background_color_2));
     }
 
     .title {
       text-align: center;
-      font-size: 75px;
-      margin-top: 160px;
     }
 
     .subtitle {
       text-align: center;
-      font-size: 30px;
-      margin-top: 20px;
-    }
-
-    .buttons {
-      margin-left: 80%;
-      padding: 14px;
-      width: 18%;
-    }
-
-    .buttons > a > button {
-      font-size: 20px;
-      padding: 14px;
-      width: 120px;
     }
   }
 </style>

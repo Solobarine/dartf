@@ -1,4 +1,7 @@
 import { createStore } from 'vuex';
+import domain from './config';
+
+console.log(domain);
 
 export const store = createStore({
   state () {
@@ -54,17 +57,17 @@ export const store = createStore({
     },
     getUser: async (state, payload) => {
             console.log(payload)
-        if (payload.res == 'Incorrect Email or Password') {
-          state.loginError = payload.res
+        if (payload.error) {
+          state.loginError = payload.error
           console.log(state.loginError)
       } else {
-        state.userDetails = payload.res.userDetails
-        state.cards = payload.res.accounts
-        state.deposits = payload.res.deposits
-        state.transfers = payload.res.transfers
-        state.messages = payload.res.messages
-        if (payload.res.settings.length !== 0) {
-          state.settings = payload.res.settings
+        state.userDetails = payload.userDetails
+        state.cards = payload.accounts
+        state.deposits = payload.deposits
+        state.transfers = payload.transfers
+        state.messages = payload.messages
+        if (payload.settings.length !== 0) {
+          state.settings = payload.settings
         } else {
           state.settings
         }
@@ -128,7 +131,7 @@ export const store = createStore({
           mode: 'dark',
           'background_color_1': '#18656a',
           'background_color_2': '#a53168',
-          'background_color_3': '#04656a',
+          'background_color_3': '#3eeba043',
           'background_color_4': '#ff4081',
           'background_color_5': '#6f7378',
           'color_1': '#fff',
@@ -145,7 +148,7 @@ export const store = createStore({
     
     },
     populateStore: async (context, payload) => {
-      const url = 'https://pure-harbor-30545.herokuapp.com/user/login'
+      const url = `${domain}/user/login`
       const data = {email: payload.email, password: payload.password}
       const options = {
         "method": "POST",
@@ -160,7 +163,7 @@ export const store = createStore({
       context.commit('getUser', json)
     },
     createAnAccount: async (context, payload) => {
-      const url = 'https://pure-harbor-30545.herokuapp.com/user/signup'
+      const url = `${domain}/user/signup`
       const options = {
         "method": "POST",
         "body": JSON.stringify(payload),
@@ -174,7 +177,7 @@ export const store = createStore({
       context.commit('createUser', resp)
     },
     createCard: async (context, payload) => {
-      const url = 'https://pure-harbor-30545.herokuapp.com/account/create'
+      const url = `${domain}/account/create`
       const options = {
         "method": "POST",
         "body": JSON.stringify(payload),
@@ -188,7 +191,7 @@ export const store = createStore({
       context.commit('createCard', data)
     },
     makeDeposit: async (context, payload) => {
-      const url = 'https://pure-harbor-30545.herokuapp.com/account/deposit/create'
+      const url = `${domain}/account/deposit/create`
       const options = {
         "method": "POST",
         "body": JSON.stringify(payload),
@@ -203,7 +206,7 @@ export const store = createStore({
       context.commit('deposit', data)
     },
     getReceiverName: async (context, payload) => {
-      const url = 'https://pure-harbor-30545.herokuapp.com/account/transfer/checkaccountno'
+      const url = `${domain}/account/transfer/checkaccountno`
       const options = {
         "method": "POST",
         "body": JSON.stringify(payload),
@@ -218,7 +221,7 @@ export const store = createStore({
       context.commit('receiver', data)
     },
     makeTransfer: async (context, payload) => {
-      const url = 'https://pure-harbor-30545.herokuapp.com/account/transfer'
+      const url = `${domain}/account/transfer`
       const options = {
         "method": "POST",
         "body": JSON.stringify(payload),

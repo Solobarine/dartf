@@ -1,7 +1,7 @@
 <template>
   <div class="contact-page">
     <form id="form">
-      <h2 class="head">Send Your Suggestions to Us. We appreciate Your Feedback.</h2>
+      <h2 class="head">We appreciate Your Feedback.</h2>
       <input v-model="mail" type="email" name="email" id="mail" placeholder="Enter Your Email" required>
       <textarea v-model="feedback" type="text" name="comment" id="comment" minlength="2" maxlength="100" placeholder="Give your Feedback" required></textarea>
       <input class="submit" type="submit" value="Submit">
@@ -28,34 +28,38 @@ export default {
 
 <style scoped>
   .contact-page {
-    height: 80%;
     width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background-color: v-bind(themeColor.background_color_5);
   }
 
   #form {
-    margin-top: 80px;
     width: 50%;
-    height: 70%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    gap: 20px;
     margin: auto;
     align-items: center;
+    padding: 20px;
+    padding-bottom: 40px;
+    border-radius: 30px;
+    background-image: linear-gradient(90deg, v-bind(themeColor.background_color_1), v-bind(themeColor.background_color_2));
+    /* background-color: red; */
   }
 
   .head {
     text-align: center;
-    font-size: 27px;
-    margin-bottom: 20px;
+    font-size: 20px;
   }
 
   input,
   textarea {
     width: 80%;
-    height: 50px;
+    padding: 15px;
     justify-content: space-evenly;
-    padding-left: 20px;
     border-radius: 10px;
     border: 1px solid v-bind(themeColor.background_color_1);
     background-color: v-bind(themeColor.background_color_3);
@@ -71,22 +75,21 @@ export default {
   }
 
   #comment {
-    height: 35%;
-    padding-top: 15px;
+    height: 200px;
   }
 
   .submit {
-    width: 30%;
-    padding-left: 0;
-    padding: 12px;
+    width: 150px;
     font-size: 18px;
     border: none;
-    background-color: v-bind(themeColor.background_color_1);
+    background-color: var(--green);
+    color: #eee;
   }
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 500px) {
     .contact-page {
       width: 100%;
+      padding: 30px;
     }
 
     #form {
@@ -100,9 +103,9 @@ export default {
       margin-top: 30px;
     }
 
-    input {
+    input,
+    textarea {
       width: 100%;
-      margin-top: 20px;
     }
 
     .submit {

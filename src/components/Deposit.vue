@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <h1 class="deposit">Make a Deposit</h1>
     <form id="form">
+      <h1 class="deposit">Make a Deposit</h1>
       <input v-model="amount" type="number" name="amount" id="amount" placeholder="Enter Amount">
       <input @click="makeDeposit" type="submit" class="submit" value="Submit">
     </form>
@@ -69,8 +69,8 @@ export default {
 
   .deposit {
     text-align: center;
-    font-size: 35px;
-    margin: 30px;
+    font-size: 20px;
+    margin: 10px;
   }
   
   h1,
@@ -82,15 +82,19 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 30%;
-    margin-left: 35%;
-    height: 40%;
+    padding: 20px;
+    padding-bottom: 40px;
+    gap: 20px;
+    background: linear-gradient(90deg, v-bind(themeColors.background_color_1), v-bind(themeColors.background_color_2));
+    border-radius: 30px;
+    width: 40%;
+    max-width: 350px;
+    margin: auto;
   }
 
   input {
     width: 80%;
-    margin-top: 40px;
-    height: 50px;
+    padding: 15px;
     border: none;
     border-radius: 10px;
     background-color: v-bind(themeColors.color_2);
@@ -101,32 +105,28 @@ export default {
   }
 
   #amount {
-    font-size: 17px;
-    padding-left: 20px;
+    font-size: .9rem;
   }
 
   .submit {
-    width: 30%;
     padding: 12px;
-    font-size: 18px;
-    margin-top: 40px;
-    background-color: v-bind(themeColors.background_color_1);
+    font-size: 16px;
+    color: #eee;
+    background-color: var(--green)
   }
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 500px) {
     .container {
       width: 100%;
     }
 
     .deposit {
-      font-size: 25px;
+      font-size: 16px;
       margin-top: 20px;
     }
 
     #form {
-      width: 100%;
-      margin: 5px auto;
-      margin-top: -25px;
+      width: 80%;
     }
 
     input {

@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="contents">
-      <h2 class="login">Login to your Account</h2>
+      <h3 class="login">Login to your Account</h3>
       <p id="errorMessage">{{error}}</p>
       <input v-model="email" type="email" class="input" name="email" placeholder="Enter your Email">
       <input v-model="password" type="password" class="input" name="password" placeholder="Enter your password">
@@ -48,32 +48,36 @@ export default {
 <style scoped>
   .container {
     padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background-color: v-bind(themeColors.background_color_5);
   }
 
   #errorMessage {
     color: red;
+    padding: 10px 0;
   }
 
-  h2,
+  h3,
   #signup {
     color: v-bind(themeColors.color_3);
   }
 
   .login {
     text-align: center;
-    font-size: 25px;
     margin-bottom: 30px;
   }
 
   .contents {
-    width: 45%;
+    width: 30%;
     display: flex;
     flex-direction: column;
     padding: 20px;
-    padding-top: 60px;
     margin: auto;
+    border-radius: 30px;
     align-items: center;
+    background-image: linear-gradient(90deg, v-bind(themeColors.background_color_1), v-bind(themeColors.background_color_2));
   }
 
   .input {
@@ -91,18 +95,17 @@ export default {
   }
 
   .submit {
-    padding: 12px;
+    padding: 15px 30px;
     font-size: 18px;
     border-radius: 10px;
-    width: 40%;
     border: none;
-    background-color: v-bind(themeColors.background_color_1);
+    background-color: var(--green);
     color: #fff;
   }
 
   #signup {
     margin-top: 20px;
-    font-size: 20px;
+    font-size: .9rem;
   }
 
   a {
@@ -115,9 +118,8 @@ export default {
     }
 
     .submit {
-      padding: 8px;
-      font-size: 10px;
-      width: 25%;
+      padding: 15px;
+      font-size: 16px;
     }
 
     #signup {

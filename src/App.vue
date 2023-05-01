@@ -34,6 +34,10 @@ export default {
     font-family: Poppins, sans-serif;
   }
 
+  :root {
+    --green: #20b970;
+  }
+
   :placeholder {
     color: v-bind(themeColors.color_3);
   }
@@ -42,12 +46,20 @@ export default {
     text-decoration: none;
   }
 
-  h1, h2, li, p, button, [type~="submit"], label {
+  h1, h2, li, p, button[type~="submit"], label {
     color: v-bind(themeColors.color_3);
   }
 
+  button[type~="submit"],
+  input[type="submit"] {
+    cursor: pointer;
+    background-color: var(--green);
+  }
+
   .parent {
-    height: auto;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
     background-color: v-bind(themeColors.background_color_5);
   }
 

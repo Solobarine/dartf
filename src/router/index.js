@@ -17,7 +17,7 @@ const routes = [
     name: 'Account',
     path: '/dashboard/account',
     component: AccountView,
-    meta: { loggedIn: true }
+    meta: { loggedIn: false }
   },
   {
     name: 'ContactUs',
@@ -30,7 +30,7 @@ const routes = [
     path: '/dashboard',
     component: DashBoard,
     meta: {
-      loggedIn: true
+      loggedIn: false
     }
   },
   {

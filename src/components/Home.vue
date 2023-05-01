@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1 class="dashboard">Dashboard</h1>
+    <h2 class="dashboard">Dashboard</h2>
     <div id="accountSummary">
       <div class="balanceInfo">
         <i class="fa-solid fa-money-bills"></i>
@@ -27,7 +27,7 @@
     </div>
     <h2 class="recent">Recent</h2>
     <div class="cashFlow">
-      <div class="deposits-record">
+      <div class="deposits">
         <h3>Recent Deposits</h3>
         <div v-if="isDeposits" class="depo">
         <div  :key="deposit" v-for="deposit in depositRecords" class="deposits">
@@ -42,7 +42,7 @@
       </div>
     </div>
       <div v-else class="depo">
-        <h3 id="not">No Current Deposits.</h3>
+        <p id="not">No Current Deposits.</p>
       </div>
       </div>
       <div class="transfers">
@@ -130,9 +130,7 @@ export default {
     display: flex;
     flex-direction: column;
     width: 80%;
-    height: 80%;
     padding: 20px;
-    overflow-y: scroll;
     background-color: v-bind(themeColors.background_color_5);
   }
 
@@ -141,13 +139,15 @@ export default {
   }
 
   #accountSummary {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
     justify-content: space-between;
+    gap: 20px;
   }
 
   #accountSummary > div {
-    width: 20%;
     display: flex;
+    min-height: 120px;
     flex-direction: column;
     justify-content: space-around;
     border-radius: 12px;
@@ -166,16 +166,21 @@ export default {
     color: v-bind(themeColors.color_1);
   }
 
+  .dashboard,
   .recent {
-    margin-top: 40px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: v-bind(themeColors.color_3);
   }
 
   .cashFlow {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 50px;
   }
 
   .cashFlow > div {
+    min-height: 300px;
     border-radius: 20px;
     padding: 12px;
     border: 2px solid v-bind(themeColors.color_1);
@@ -183,8 +188,6 @@ export default {
     background: v-bind(themeColors.background_color_3);
   }
 
-  h1,
-  h2,
   .deposits h3,
   .transfers h3 {
     text-align: center;
@@ -252,13 +255,17 @@ export default {
     flex-direction: column;
   }
 
-  #not {
-    top: 50%;
-    color: red;
+  .depo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90%;
   }
 
-  .transfers {
-    width: 46%;
+  #not {
+    font-size: 20px;
+    color: red;
   }
 
   .deposits {
@@ -284,34 +291,9 @@ export default {
       width: 100%;
     }
 
-    #accountSummary {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
-      grid-template-areas: 
-        "box-1 nox-2"
-        "box-3 box-4"
-        ;
-      width: 100%;
-      grid-gap: 20px;
-      justify-content: flex-start;
-    }
-
     #accountSummary > div {
       font-size: 16px;
       width: 100%;
-    }
-
-    .balanceInfo {
-      grid-area: box-1;
-    }
-
-    .acountInfo {
-      grid-area: box-2;
-    }
-
-    .cashFlow {
-      flex-direction: column;
     }
 
     .cashFlow > div {
@@ -324,8 +306,9 @@ export default {
       margin-bottom: 30px;
     }
 
+    .deposits,
     .transfers {
-      margin-left: auto;
+      margin: auto;
     }
 
     .t-name {

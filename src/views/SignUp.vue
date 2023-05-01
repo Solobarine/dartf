@@ -13,8 +13,8 @@
       </div>
       <div>
         <label for="password">Enter Password</label>
-    <input type="password" v-model="password" name="password" id="password" placeholder="Password" minlength="8" maxlength="15" required>
-  </div>
+        <input type="password" v-model="password" name="password" id="password" placeholder="Password" minlength="8" maxlength="15" required>
+      </div>
       <div>
         <span id="passwdError">{{error}}</span>
         <label for="confirmPassword">Re-enter Password</label>
@@ -38,8 +38,8 @@
         <select name="countries" v-model="userCountry" required>
           <option disabled value="">Country of Origin</option>
           <option v-bind:key="country" v-for="country in countries">
-            <p class="countryName" name="userCountry" value="country.name">{{country.name}}</p>
             <p value="" class="countryFlag">{{country.flag}}</p>
+            <p class="countryName" name="userCountry" value="country.name">{{country.name}}</p>
           </option>
         </select>
       </div>
@@ -143,7 +143,6 @@ export default {
   }
 
   .sign-up {
-    color: #00f;
     background-color: v-bind(themeColors.background_color_5);
   }
 
@@ -158,6 +157,7 @@ export default {
 
   .fields div {
     display: grid;
+    gap: 10px;
     grid-template-columns: 1fr;
   }
 
@@ -168,18 +168,22 @@ export default {
   .fields div input,
   .fields div select {
     padding: 15px;
-    border-radius: 15px;
+    border-radius: 8px;
     background-color: v-bind(themeColors.background_color_4);
     border: none;
     min-width: 0;
+  }
+
+  .fields p {
+    text-align: center;
   }
 
   #submit {
     padding-left: 0;
     font-size: 20px;
     border: none;
-    border-radius: 15px;
-    padding: 12px;
+    border-radius: 8px;
+    padding: 15px;
     background-color: v-bind(themeColors.background_color_1);
   }
 
@@ -188,7 +192,7 @@ export default {
     text-decoration-color: none;
   }
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 600px) {
     #sign {
       margin-bottom: 10px;
     }
@@ -224,8 +228,8 @@ export default {
     }
 
     #submit {
-      font-size: 12px;
-      padding: 12px;
+      font-size: 16px;
+      padding: 15px;
       border: none;
       border-radius: 10px;
       margin: auto;

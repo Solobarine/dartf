@@ -21,14 +21,13 @@ export default {
 <style scoped>
   .container {
     display: flex;
-    height: 760px;
   }
 
   .home {
     height: 100%;
   }
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 500px) {
     .container {
       position: relative;
       flex-direction: column;
